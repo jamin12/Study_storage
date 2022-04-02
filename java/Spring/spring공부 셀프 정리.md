@@ -7,6 +7,10 @@
 - component클래스는 autowired시 초기화 메소드를 실행할 수 있다.
 - 이 메소드는 다른 곳에서 호출 없어도 무조건 실행된다.
 - 생성자가 호출되었을때 bean이 초기화 되지 않은 상태인데, PostConstruct 어노테이션을 사용하면 bean이 초기화 되면 동시에 의존성 확인이 가능하다.
+  
+## @ControllerAdvice
+
+## @ExceptionHandler
 
 # 핵심 원리
 ## __객체 지향적 설계 원칙(SOLID)__

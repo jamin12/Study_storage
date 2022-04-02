@@ -8,3 +8,6 @@
 > 2022-03-30
 - 배열 정리
 - 빅오 정리
+> 2022-04-02
+- Opitonal 정리!
+- https://mangkyu.tistory.com/203 참고
