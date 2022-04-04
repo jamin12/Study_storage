@@ -11,3 +11,5 @@
 > 2022-04-02
 - Opitonal 정리!
 - https://mangkyu.tistory.com/203 참고
+> 2022-04-04
+- 로지스틱 회귀 정리
