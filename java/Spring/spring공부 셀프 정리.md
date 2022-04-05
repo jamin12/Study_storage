@@ -9,8 +9,9 @@
 - 생성자가 호출되었을때 bean이 초기화 되지 않은 상태인데, PostConstruct 어노테이션을 사용하면 bean이 초기화 되면 동시에 의존성 확인이 가능하다.
   
 ## @ControllerAdvice
-
+- @Controller나 @ RestController에서 발생한 예외를 한 곳에서 관리하고 처리할 수 있게 도와주는 어노테이션이다. 즉 스프링에서 예외처리를 전역으로 핸들링하기 위해 @ControllerAdvicde 어노테이션을 사용할 수 있다.
 ## @ExceptionHandler
+- @ExceptionHandler(xxException.class) : 발생한 xxException에 대해서 처리하는 메소드를 작성한다.  
 
 # 핵심 원리
 ## __객체 지향적 설계 원칙(SOLID)__
