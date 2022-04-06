@@ -4,13 +4,13 @@
 > 2022-03-29    
 - JPA영속성 정리
 - JPA 즉시로딩 지연로딩 정리
-- https://ict-nroo.tistory.com/130  참고
+  - https://ict-nroo.tistory.com/130  참고
 > 2022-03-30
 - 배열 정리
 - 빅오 정리
 > 2022-04-02
 - Opitonal 정리!
-- https://mangkyu.tistory.com/203 참고
+  - https://mangkyu.tistory.com/203 참고
 > 2022-04-04
 - 로지스틱 회귀 정리
 > 2022-04-05
