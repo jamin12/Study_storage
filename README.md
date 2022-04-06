@@ -19,3 +19,6 @@
 - StreamAPI 정리 중....
   - https://mangkyu.tistory.com/113 참고
 - 스프링 어노테이션 업데이트
+> 2022-04-06
+- 스트림 API 활용법 정리중...
+  - https://mangkyu.tistory.com/114 참고
