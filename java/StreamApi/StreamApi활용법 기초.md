@@ -46,4 +46,73 @@
         // [Go, Groovy, Java, Python, Scala, Swift] 
         Stream<String> stream = list.stream() .sorted(Comparator.reverseOrder()) 
         // [Swift, Scala, Python, Java, Groovy, Go]
-        
+4. __<span style="color:#ff9933">[중복 제거 - Distinct]</span>__
+   - Stream의 요소들에 중복된 데이터가 존재하는 경우, 중복을 제거하기 위해 Distinct을 사용할 수 있다. Distinct은 중복된 데이터를 검사하기 위해 Object의 equals() 메소드를 사용한다. 예를 들어 중복된 Stream의 요소들을 제거하기 위해서는 아래와 같이 distinct()를 사용할 수 있다.
+   - ``` java
+          List<String> list = Arrays.asList("Java", "Scala", "Groovy", "Python", "Go", "Swift", "Java"); 
+          Stream<String> stream = list.stream() .distinct() 
+          // [Java, Scala, Groovy, Python, Go, Swift]
+   - 만약 우리가 생성한 클래스를 Stream으로 사용한다고 하면 equals와 hashcode를 오버라이드 해야한 distinct()를 제대로 적용할 수 있다.
+   - 만약 다음과 같은 Employee클래스가 있다고 하자
+   - ``` java
+          public class Employee { 
+               private String name; 
+               public Employee(String name) { 
+                    this.name = name; 
+               }
+               public String getName() { 
+                    return name; 
+               } 
+          }
+   - 위의 Employee클래스는 equals와 hashCode를 오버라이드 하지 않았기 때문에, 아리의 코드를 싱행해도 중복된 데이터가 제거되지 않고, size값으로 2를 출력하게 된다.
+   - ``` java
+          import java.util.*; 
+          public class Main { 
+               public static void main(String[] args) { 
+                    Employee e1 = new Employee("MangKyu"); 
+                    Employee e2 = new Employee("MangKyu");
+                    List<Employee> employees = new ArrayList<>();
+                    employees.add(e1); employees.add(e2); 
+                    int size = employees.stream()
+                    .distinct()
+                    .collect(Collectors.toList())
+                    .size(); 
+                    System.out.println(size); 
+               } 
+          }
+   - 그렇기 떄문에 우리는 아래와 같이 equals와 hashCode를 오버라이드하여 이러한 문제를 해결해야 한다.
+   - ``` java 
+          import java.util.Objects;
+
+          public class Employee {
+
+          private String name;
+
+          public Employee(String name) {
+               this.name = name;
+          }
+
+          public String getName() {
+               return name;
+          }
+
+          @Override
+          public boolean equals(Object o) {
+               if (this == o) return true;
+               if (o == null || getClass() != o.getClass()) return false;
+               Employee employee = (Employee) o;
+               return Objects.equals(name, employee.name);
+          }
+
+          @Override
+               public int hashCode() {
+                    return Objects.hash(name);
+               }
+          }
+   - 위와 같은 코드를 추가하고 main함수를 다시 실행시키면 size는 1이 된다.
+5. __<span style="color:#ff9933">[특정 연산 수행 - Peek]</span>__
+   - Stream의 요소들을 대상으로 Stream에 영향을 주지 않고 특정 연산을 수행하기 위한 peek함수가 존재한다. '확인해본다'라는 뜻을 지닌 peek단어처럼 peek 함수는 Stream의 각각의 요소들에 대해 특정 작업을 수행할 뿐 결과에 영향을 주지 않는다. 또한 peek 함수는 파라미터로 함수형 인터페이스 Consumer를 인자로 받는다. 예를 들어 어떤 Stream의 요소들을 중간에 출력하기를 원할 때 다음과 같이 활용할 수 있다.
+   - ``` java 
+          int sum = IntStream.of(1, 3, 5, 7, 9) 
+          .peek(System.out::println) .sum();
+   - 
