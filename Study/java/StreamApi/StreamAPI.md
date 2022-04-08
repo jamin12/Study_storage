@@ -46,7 +46,7 @@
             at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:229) 
             at java.util.stream.ReferencePipeline.noneMatch(ReferencePipeline.java:459)
    - 내부 반복으로 작업을 처리한다.
-     - Stream을 이요하면 코드가 간결해지는 이유 중 하나는 '내부 반복' 때문이다. 기존에는 반복문을 사용하기 위해서 for이나 while등과 같은 문법을 사용해야 했지만 stream에서는 그러한 반복 문법을 메소드 내부에 숨기고 있기 때문에 간결한 코드 작성이 가능하다.
+     - Stream을 이용하면 코드가 간결해지는 이유 중 하나는 '내부 반복' 때문이다. 기존에는 반복문을 사용하기 위해서 for이나 while등과 같은 문법을 사용해야 했지만 stream에서는 그러한 반복 문법을 메소드 내부에 숨기고 있기 때문에 간결한 코드 작성이 가능하다.
      - ``` java 
          // 반복문이 forEach라는 함수 내부에 숨겨져 있다. 
          nameStream.forEach(System.out::println);

@@ -22,3 +22,7 @@
 > 2022-04-06
 - 스트림 API 활용법 정리중...
   - https://mangkyu.tistory.com/114 참고
+> 2022-04-09
+- 스트림 기초 활용법 정리
+- 스트림 고급 활용법 정리중 ...
+  - https://mangkyu.tistory.com/115 참고
