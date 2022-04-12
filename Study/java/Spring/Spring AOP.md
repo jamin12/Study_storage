@@ -39,4 +39,56 @@
 ## __<span style="color:#9999ff">패키지 기반, 어노테이션 기반으로 AOP 사용해보기</span>__
 1. __<span style="color:#ff9933">[AOP 사용해보기]</span>__
    - 다른 요소들고 마찬가지로 AOP를 적용하기 위해서는 먼저 의존성을 추가해주어야 한다.
-   - AOP 의존성을 추가하고 빌드를 하였으면 AOP를 활성화하겠다는 어노테이션을 추가해주어야 한다. SpringBoot의 애플리케이션 클래스에 @EnableAspectJAutoProxy
+   - AOP 의존성을 추가하고 빌드를 하였으면 AOP를 활성화하겠다는 어노테이션을 추가해주어야 한다. SpringBoot의 애플리케이션 클래스에 @EnableAspectJAutoProxy 어노테이션을 추가해주도록 하자
+   - ``` java 
+      @EnableAspectJAutoProxy 
+      @SpringBootApplication 
+      public class DemoApplication { 
+         public static void main(String[] args) { 
+            SpringApplication.run(DemoApplication.class, args); 
+         } 
+      }
+   - 위 두과정을 거치면 AOP를 적용하기 위한 준비가 끝난 것이다. 어디에 AOP를 적용하지 말고, 실행 시간을 측정하기 위한 Aspect클래스부터 개발해보도록 하자.
+   - ``` java 
+      @Aspect 
+      @Component 
+      @Log4j2 
+      public class ExecutionTimeAop { 
+         // 모든 패키지 내의 controller package에 존재하는 클래스 
+         @Around("execution(* *..controller.*.*(..))") 
+         public Object calculateExecutionTime(ProceedingJoinPoint pjp) throws Throwable { 
+            // 해당 클래스 처리 전의 시간 
+            StopWatch sw = new StopWatch(); 
+            sw.start(); 
+            // 해당 클래스의 메소드 실행 
+            Object result = pjp.proceed(); 
+            // 해당 클래스 처리 후의 시간 
+            sw.stop(); 
+            long executionTime = sw.getTotalTimeMillis(); 
+            String className = pjp.getTarget().getClass().getName(); 
+            String methodName = pjp.getSignature().getName(); 
+            String task = className + "." + methodName; 
+            log.debug("[ExecutionTime] " + task + "-->" + executionTime + "(ms)"); 
+            return result; 
+         } 
+      }
+   - 우선 AOP 클래스로 설정하기 위해 @Aspect 어노테이션을 추가해주었으며, Spring의 빈으로 등록하기 위해 @Component 어노테이션을 추가해줘었다. 그리고 우리가 하고자 하는 것은 모든 API의 실행 시간을 측정해주는 것이므로 StopWatch를 생성하여 측정을 시작하였다. 그리고 pjp의 proceed를 통해 실제 핵심 로식을 실행하여 Object클래스로 메소드의 결과를 받았다. 이후에 StopWatch를 중단하여 실행 시간을 밀리세컨드로 계산하여 로그를 출력하고 함수를 종료시키고 있다.
+   - 이제 위와 같은 기능을 적용할 지점을 선정해야 하는데, 크게 패키지 기반으로 하는 방법과 어노테이션 기반으로 하는 방법이 있다.
+2. __<span style="color:#ff9933">[패키지 기반으로 AOP 적용하기]</span>__
+   - 먼저 Controller 패키지에 해당 기능을 적용하기 위해서는 다음과 같은 @Around를 적용해줄 수 있다.
+   - @Around("execution(* *..controller.*.*(..))") 
+
+3. __<span style="color:#ff9933">[어노테이션 기반으로 AOP 적용하기]</span>__
+   - 반면에 어노테이션 기반으로 적용하기 위해서는 AOP를 처리하기 위한 어노테이션을 만들어주어야 한다.
+   - ``` java
+      @Retention(RetentionPolicy.RUNTIME) 
+      @Target({ElementType.TYPE, ElementType.METHOD}) 
+      public @interface ExecutionTimeChecker { 
+
+      }
+   - 위에서 @Target은 어노테이션이 적용될 레벨을 의미한다. 이번에는 클래스 또는 메소드에 적용하고자 TYPE, METHOD를 추가해주었다.
+   - 그 다음에는 해당 어노테이션이 적용되도록 @Around를 수정해야한다.
+   - @Around("@within(com.mang.atdd.membership.aop.ExecutionTimeChecker)")
+   - 그리고 해당 메소드를 호출해보면 실행 시간을 측정하는 AOP가 클래스 레벨에는 물론 메소드 레벨까지 정상적으로 실행됨을 확인할 수 있다.
+
+
