@@ -12,7 +12,7 @@
      - 포인트컷을 통해 부가기능 대상 여부 확인
      - 어드바이스로 부가 기능 적용
      - 실제 기능 처리
-   - Spring AOP는 프록시를 이용하였으며 자바의 기본 JDK와 스프링 컨테이너 외에는 특별한 기술이나 환경이 필요로 하지 않는다. 하지만 이러한 프록시 방법은 반드시 Spring 컨테이너가 피룡하며 부가기능의 처리가 어려운 단접이 있어서 바이트를 조작하는 AOP가 등장하게 되었다.
+   - Spring AOP는 프록시를 이용하였으며 자바의 기본 JDK와 스프링 컨테이너 외에는 특별한 기술이나 환경이 필요로 하지 않는다. 하지만 이러한 프록시 방법은 반드시 Spring 컨테이너가 피룡하며 부가기능의 처리가 어려운 단점이 있어서 바이트를 조작하는 AOP가 등장하게 되었다.
 3. __<span style="color:#ff9933">[AspectJ의 AOP]</span>__
    - Spring AOP외에 또 다른 강력한 AOP 프레임워크 중 하나인 Aspectj는 프록시를 이용하지 않는다 대신 AspectJ는 CGlib라는 바이트 조작 라이브러리를 사용하여 타깃 오브젝트의 바이트를 고쳐서 부가기능을 직접 넣어주는 방법(바이트조작)을 사용한다. 그래서 우리가 만든 코드에서는 부가기능이 분리되어있지만 바이트 코드에서 핵심 기능과 부가기능이 섞여있는 구조이다. AspectJ가 프록시를 사용하지 않고 CGLib를 이용한 복잡한 바이트 조작 방법을 사용하는 이유는 크게 2가지가 있다.
      - 바이트 코드를 조작하면 Spring과 같은 컨테이너의 도움이 필요 없기 떄문이다.
@@ -90,5 +90,107 @@
    - 그 다음에는 해당 어노테이션이 적용되도록 @Around를 수정해야한다.
    - @Around("@within(com.mang.atdd.membership.aop.ExecutionTimeChecker)")
    - 그리고 해당 메소드를 호출해보면 실행 시간을 측정하는 AOP가 클래스 레벨에는 물론 메소드 레벨까지 정상적으로 실행됨을 확인할 수 있다.
+# Spring의 AOP 프록시 구현 방법(JDK동적 프록시,CGLIB프록시)과 @EnableAspectJAutoProxy의 proxyTargetClass
+## __<span style="color:#9999ff">Spring의 AOP프록시 구현 방법(JDK Dynamic Proxy, CGLib proxy)</span>__
+1. __<span style="color:#ff9933">[AOP에 대한 이해]</span>__
+   - AOP는 부가 기능을 핵심 기능으로 부터 분리하기 위해 등장한 기술이다. 부가 기능을 분리함으로써 우리는 해당 로직을 재사용할 수 있고 핵심 기능은 핵심 열할에만 집중할 수 있도록 도와준다.
+   - spring의 AOP는 기본적으로 프록시 방식으로 동작하도록 되어있는데,Spring에서 AOP를 활용하기 위해서는 @EnableAspectJAutoProxy 어노테이션을 붙여주어야 하면 이에대한 옵션으로 proxyTargetClass가 있다.</br>그리고 이 옵션을 주지 않으면 스프링 빈을 찾지 못하는 등의 에러가 발생할 수 있는데, 이를 이해하기 위해서 우리가 수동으로 구현하는 프록시 방식과 Spring이 자동으로 구현하는 프록시 방식에 대해 알아보고 왜 이 옵션이 생기게 되었는지 이해해보도록 하자
+2. __<span style="color:#ff9933">[수동으로 직접 Proxy 구현]</span>__
+   - 앞서 설명하였듯이 AOP를 구현하는 기본적인 방법은 프록시 패턴을 이용하는 것인데, 우리가 직접 AOP를 구현하고자 한다면 다음과 같이 구현할 수 있다.</br>예를 들어 다음과 같은 DiscountController와 DiscountService및 구현체가 있다고 하자
+   - ``` java 
+      @RestController 
+      @RequiredArgsConstructor 
+      public class DiscountController { 
+         private final DiscountService discountService; 
+      } 
 
+      public interface DiscountService { 
+         int discount(); 
+      } 
 
+      @Service 
+      public class RateDiscountService implements DiscountService { 
+         @Override 
+         public int discount() { ... } 
+      }
+   - 우리는 RateDiscountService의 discount메소드가 호출되기 이전에 부가기능을 적용하기 위해 다음과 같이 인터페이를 구현하여 proxy객체를 직접 생성할 수 있다.
+   - ``` java
+      @Service 
+      public class RateDiscountServiceProxy implements DiscountService { 
+         // 여기서는 RateDiscountService에 해당한다. 
+         private DiscountService discountService; 
+         public DiscountServiceProxy(DiscountService discountService) { 
+            this.discountService = discountService; 
+         } 
+      @Override 
+      public int discount() { 
+         // 1. 메소드 호출 전의 부가 기능 처리 
+
+         // 2. 실제메소드 호출 
+         this.discountService.discount() 
+         // 3. 메소드 호출 후의 부가 기능 처리 
+         }
+      }
+   - 위와 같이 실제 객체의 메소드가 호출 전/후에 처리해야 하는 부가기능을 추가함으로 써 AOP를 구현할 수 있다. 하지만 이러한 방식은 다음과 같은 문제점을 가지고 있다.
+     - 불필요하게 DiscountService타입의 빈이 2개 등록됨
+     - DI시 문제가 발생할 수 있음
+   - Spring이 1개의 타입에 대해 불필요하게 여러 개의 빈을 관리해야 할 뿐만 아니라 해당 타입의 빈이 여러개이므로 의존성 주입시에도 문제가 발생할 여지가 있는 것이다. 물론 변수 이름이나 지시자 등으로 피할 수 있지만 이는 번거롭다.
+3. __<span style="color:#ff9933">[Spring의 JDK dynamic proxy구현]</span>__
+   - 위와 같은 문제를 해결하기 위해 Spring은 java 언어 차원에서 제공하는 자동 프록시 생성기를 통해 직접 프록시 객체를 생성한 후에 특별한 처리를 해주는데 이를 JDK동적 프록시 또는 JDK 다이나믹 프록시라고 부른다. Spring은 프록시를 구현할 때 프록시를 구현한 객체를 마치 실제 빈인 것처럼 포장하고, 2개의 빈을 모두 등록하는 것이 아니라 실제 빈을 프록시가 적용된 빈으로 바꿔치기 한다.</br>이러한 방식이 가능한 이유는 프록시 구현 대상이 인터페이스를 구현하고 있으며, Spring이 프록시 구현체를 만들때 프록시 대상과 동일한 인터페이스를 구현하도록 했기 때문이다. 즉, 프록시 대상과 프록시 구현체 모두 동일한 인터페이스 타입 및 구현체이기 때문에 기존 RateDiscountSAervice빈을 RateDiscountServiceProxy로 바꿔치기하고, 빈 후처리기를 통해 이미 정의된 의존 관계 역시 바꿀 수 있는 것이다.
+   - ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F8Hwlj%2Fbtq93m1xAoj%2Fano2xaOrSnrV90EdrgG1pk%2Fimg.png)
+   - 기존에는 왼쪽과 같이 실제 빈과 proxy빈 2개가 스프링 컨테이너에 등록되었다면, Spring이 JDK 동적 프록시를 구현할 때에는 Proxy빈을 실제 빈처럼 구현하고 기존의 빈을 대체하도록 하는 것이다.
+   - 이러한 방식이 괜찮아 보이지만 만약 실제 빈을 직접 참조하고 있는 경우라면 문제가 발생 한다.
+   - 위의 예제에서 문제가 발생하니 않은 이유는 실제 빈(RateDiscountService)이 DiscountService라는 인터페이스에 의존하고 있고, DiscountController에서도 DiscountService에 의존하고 있기 떄문이다.
+   - 하지만 만약 다음과 같이 결제를 담당하는 PaymentService에서 구체 클래스(RateDiscountService)를 주입받고 있다면 어떻게 될까?
+   - ``` java
+      @Service 
+      @RequiredArgsConstructor 
+      public class PaymentService { 
+         private final RateDiscountService rateDiscountService; 
+      }
+   - Spring이 새롭게 추가한 RateDiscountServiceProxy는 DiscountService인터페이스를 구현한 클래스이지 RateDiscounterService를 상속받는 클래스가 아니다. 그래서 RateDiscountService타입의 빈을 찾을 수 없어 에러가 발생 하게 된다.
+   - ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FRFrCc%2Fbtq93oSyfXa%2FkraCOVIpwbuHSeutdYUJJk%2Fimg.png)
+   - 또한 JDK dynamix proxy는 인터페이스를 기반으로 프록시를 생성하는데, 인터페이스를 구현한 클래스가 아니면 프록시 객체를 생성할 수 없다. 즉, JDK 동적 프록시는 다음과 같은 두 가지 한계점을 가지게 된다.
+     - 프록시를 적용하기 위해서는 반드식 인터페이스를 생성해야 함
+     - 구체 클래스로는 빈을 주입받을 수 없고, 반드시 인터페이스로만 주입받아야함
+   - 하지만 실제 개발을 하다보면 인터페이스 없이 구체 클래스에 의존하는 경우도 많은데 AOP를 적용하기 위해 모든 빈들을에게 인터페이스를 만들어주는 것은 상당히 번거롭다. 또한 구체 클래스에 의존해야 하는 경우에는 빈을 찾을 수 없어서 에러가 발생하므로 대처가 어렵다. 이러한 이유로 Spring은 JDK 동적 프록시 방식이 아닌 또 다른 프록시 구현 방식을 구혀하였다.
+4. __<span style="color:#ff9933">[Spring의 CGLib Proxy 구현]</span>__
+   - 위와 같은 문제를 해결하기 위해서는 Spring이 구현해주는 Proxy 객체가 인터페이스(DiscountSerivee)를 기반으로 하지 않고 클래스(RateDiscountService)를 구현한 객체여야 한다. 즉, **클래스 상속을 기반으로 프록시를 구**하도록 강제해야 하는 것이다.
+   - ``` java
+      public class RateDiscountServiceProxy extends RateDiscountService { ... }
+   - 그러면 Spring은 RateDiscountServiceProxy를 구현할 때 위와같이 RateDiscountService를 상속받아 구현하는데, 이러한 클래스 기반의 프록시를 구현하기 위해서는 바이트 코드를 조작해야한다. 그래서 Spring은 CGLib이라는 바이트 조작 라이브러리를 통해 클래스 상속으로 프록시를 구현함으로써 JDK 동적 프록시에 의한 문제를 완전히 해결하고 있따. CGLib을 이용한 프록시 방식은 클래스 기반의 프록시이므로 인터페이스가 없어도 적용가능하며, 인터페이스가 구현된 빈의 경우에도 인터페이스 주입과 구체 클래스 주입이 모두 가능하다. 대신 CGLib 프록시는 상속을 이용하므로 **기본 생성자를 필요로 하며, 생성자가 2번 호출되고 final클래스나 final 메소드면 안된다는 제약**이 있다.
+## __<span style="color:#9999ff">@EnableAspectJAutoProxy의 proxyTargetClass</span>__
+1. __<span style="color:#ff9933">[@EnableAspectJAutoProxy의 proxyTargetClass]</span>__
+   - 스프링 프레임워크는 프록시를 구현할 떄 기존의 방식처럼 **인터페이스를 구현하도록 할것인지(JDK동적 프록시) 또는 해당 클래스를 바이트 조작하여 직접 구현하도록 할 것인지(CGLib)에 대한 옵션을 제공하고 있는데, 이것이 바로 proxyTargetClass이다.
+   - ``` java 
+      @SpringBootApplication 
+      @EnableAspectJAutoProxy(proxyTargetClass = true) 
+      public class AtddMembershipApplication { 
+         public static void main(String[] args) { 
+            SpringApplication.run(AtddMembershipApplication.class, args); 
+         } 
+      }
+   - 일반적으로는 인터페이스 주입에 의한 문제를 예방하고자 proxyTargetClass를 True로 주는 경우가 많은데, SpringBoot를 사용하고 있다면 더이상 이러한 옵션을 부여하지 않아도 된다. 왜냐면 SpringBoot에서는 CGLib라이브러리가 안정화되었다고 판단하여 proxyTargetClass 옵션의 기본값을 true로 사용하고 있다.
+   - 여기서 하나 주의할 점은 @EnableAspectJAutoProxy 어노테이션의 기본값이 true로 바뀐것이 아니라는 점이다. @EnableAspectJAutoProxy는 SpringBoot가 아닌 Spring에서 만들어진 어노테이션이므로 기본값은 false가 맞다.
+   - ``` java
+      @Target(ElementType.TYPE) 
+      @Retention(RetentionPolicy.RUNTIME) 
+      @Documented
+      @Import(AspectJAutoProxyRegistrar.class) 
+      public @interface EnableAspectJAutoProxy { 
+         boolean proxyTargetClass() default false; 
+         boolean exposeProxy() default false; 
+      }
+   - 위에서 proxyTargetClass 옵션의 기본값을 true로 바꾼것은 SpringBoot에만 해당된다. SpringBoot는 어플리케이션을 실행할 때 AutoConfigure를 위한 정보들을 spring-boot-autoconfigure의 spring-configuration-metadata.json에서 관리하고 있다.
+   - 그리고 AutoConfigure를 진행할 때 해당 값을 참조해서 설정을 진행한다. 그러므로 proxyTargetClass의 기본 값이 true라는 것은 Spring MVC가 아닌 Spring Boot에서만 해당하는 내용이다. 만약 SpringBoot에서 proxyTargetClass의 값을 false로 설정하려면 프로퍼티에서 spring.aop.proxy-target-class를 false로 주면 된다.
+   - 만약 spring-boot-starter-aop의존성이 추가되어 있다면 AopAutoConfiguration을 통한 설정에 의해 @EnableAspectJAutoProxy를 추가하지 않아도 된다.
+1. __<span style="color:#ff9933">[정리 및 요약]</span>__
+   - 원래 Spring은 프록시 타깃 객체에 인터페이스가 있다면 그 인터페이스를 구현한 JDK 다이내믹 프록시 방식으로 객체를 생성하고 인터페이스가 없다면 CGLib를 이용하한 클래스 프록시를 만든다.
+     - 인터페이스를 구현하고 있는지 확인함
+     - 인터페이스를 구형하고 있으면 JDK 다이내믹 프록시 방식으로 객체를 생성
+     - 인터페이스를 구현하지 않으면 GCLib 방식으로 객체를 생성
+   - 하지만 JDK 동적 프록시 방식은 다음과 같은 2가지 한계점을 가지고 있다.
+     - 프록시를 적요하기 위해서 반드시 인터페이스를 생성해야함
+     - 구체 클래스로는 빈을 주입받을 수 없고, 반드시 인터페이스로만 주입받아야함
+   - 그래서 스프링은 CGLib 방식의 프록시를 강제하는 옵션을 제공하고 있는데, 이것이 바록 proxyTargetClass이며, 이값을 true로 지정해주면 Spring은 인터페이스가 있더라도 무시하고 클래스 프록시를 만들게 된다.
+   - SpringBoot에서는 CGLib라이브러리가 갖는 단점들을 모두 해결하였고 proxyTargetClass 옵션의 기본값을 true로 사용하고 있다.

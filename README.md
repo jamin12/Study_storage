@@ -31,3 +31,10 @@
   - https://mangkyu.tistory.com/115 참고
 - Spring AOP 정리중...
   - https://mangkyu.tistory.com/121 참고
+> 2020-04-14
+- Spring AOP 정리
+  - https://mangkyu.tistory.com/121 참고
+- 연결 리스트 정리
+  - https://ehclub.co.kr/2525 참고
+  - https://skytitan.tistory.com/45 참고
+  - https://sycho-lego.tistory.com/17 참고
