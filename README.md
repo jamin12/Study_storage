@@ -46,3 +46,6 @@
   - https://velog.io/@sdh7700/%EC%8A%A4%ED%83%9DStack-%ED%81%90Queue-%EB%8D%B0%ED%81%90Double-ended-Queue 참고
 - 해시 정리
   - https://go-coding.tistory.com/30 참고
+> 2022-04-17
+- 자바 커스텀 어노테이션 정리
+  - https://mangkyu.tistory.com/130?category=872426 참고
