@@ -53,3 +53,9 @@
   - 그래프 정리
     - https://suyeon96.tistory.com/32
     - https://yunyoung1819.tistory.com/86 참고
+> 2020-04-20
+- SpringAop 추가 정리
+  - https://congsong.tistory.com/25 참고
+- Spring Filter, interceptor 정리
+  - https://astrid-dm.tistory.com/465 참고
+  - https://astrid-dm.tistory.com/m/466 참고

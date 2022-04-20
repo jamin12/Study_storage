@@ -12,7 +12,7 @@
      - 포인트컷을 통해 부가기능 대상 여부 확인
      - 어드바이스로 부가 기능 적용
      - 실제 기능 처리
-   - Spring AOP는 프록시를 이용하였으며 자바의 기본 JDK와 스프링 컨테이너 외에는 특별한 기술이나 환경이 필요로 하지 않는다. 하지만 이러한 프록시 방법은 반드시 Spring 컨테이너가 피룡하며 부가기능의 처리가 어려운 단점이 있어서 바이트를 조작하는 AOP가 등장하게 되었다.
+   - Spring AOP는 프록시를 이용하였으며 자바의 기본 JDK와 스프링 컨테이너 외에는 특별한 기술이나 환경이 필요로 하지 않는다. 하지만 이러한 프록시 방법은 반드시 Spring 컨테이너가 필요하며 부가기능의 처리가 어려운 단점이 있어서 바이트를 조작하는 AOP가 등장하게 되었다.
 3. __<span style="color:#ff9933">[AspectJ의 AOP]</span>__
    - Spring AOP외에 또 다른 강력한 AOP 프레임워크 중 하나인 Aspectj는 프록시를 이용하지 않는다 대신 AspectJ는 CGlib라는 바이트 조작 라이브러리를 사용하여 타깃 오브젝트의 바이트를 고쳐서 부가기능을 직접 넣어주는 방법(바이트조작)을 사용한다. 그래서 우리가 만든 코드에서는 부가기능이 분리되어있지만 바이트 코드에서 핵심 기능과 부가기능이 섞여있는 구조이다. AspectJ가 프록시를 사용하지 않고 CGLib를 이용한 복잡한 바이트 조작 방법을 사용하는 이유는 크게 2가지가 있다.
      - 바이트 코드를 조작하면 Spring과 같은 컨테이너의 도움이 필요 없기 떄문이다.
@@ -20,7 +20,7 @@
    - 프록시를 이용해 프록시를 구현하려면 Spring의 빈으로 등록해야 하기 때문에 Spring에 종속적인 기술이 되어버린다는 단점이 있다. 반면에 바이트코드를 조작하면 스프링과 같은 컨테이너가 없는 환경에서도 AOP를 이용할 수 있다.
    - 또한 바이트 조작으로 AOP를 구현하면 객체의 생성, 필드 값의 조회와 조작 등과 같은 다양한 부가 기능을 추가할 수 있다. 하지만 프록시를 이용하는 방법으로는 이러한 부가 기능을 처리하기가 어렵다.
    - 그래도 대부분의 경우라면 Spring에서 제공하는 AOP로도 처리할 수 있다. 하지만 특별한 요구사항이 생겨 Spring AOP로 처리가 어렵다면 AspectJ를 이용하면 된다.
-   - AOP를 정용하는 방법으로는 크게 다음 3가지를 고려하면 된다.
+   - AOP를 적용하는 방법으로는 크게 다음 3가지를 고려하면 된다.
      - 클래스 또는 메소드의 이름 패턴으로 적용
      - 빈의 이름으로 적용
      - 어노테이션으로 적용
@@ -194,3 +194,51 @@
      - 구체 클래스로는 빈을 주입받을 수 없고, 반드시 인터페이스로만 주입받아야함
    - 그래서 스프링은 CGLib 방식의 프록시를 강제하는 옵션을 제공하고 있는데, 이것이 바록 proxyTargetClass이며, 이값을 true로 지정해주면 Spring은 인터페이스가 있더라도 무시하고 클래스 프록시를 만들게 된다.
    - SpringBoot에서는 CGLib라이브러리가 갖는 단점들을 모두 해결하였고 proxyTargetClass 옵션의 기본값을 true로 사용하고 있다.
+## __<span style="color:#9999ff">용어 정리</span>__
+- Aspect(관점)
+  - 공통적으로 적용될 기능 부가적인 기능을 정의한 코드인 Advice와 Advice를 어느 곳에 적용할지 결정하는 PointCut의 조합으로 만들어짐
+- Advice
+  - 실제로 부가적인 기능을 구현한 객체를의미(Aspect 기능 자체)
+- JoinPoint(조인포인트)
+  - Advice를 적용할 위치</br>ExampleService의 메서드 중 원하는 메서드를 골라 Advice를 적용할 수 있는데, 이때 모든 메서드들은 Join Point가 됨
+- PointCut(포인트컷)
+  - Advice를 적용할 JoinPoint를 선별하는 과정이나, 그 기능을 정의한 모듈 정규표현식 or AspectJ를 사용해서 어떤 JoinPoint를 사용할지 결정
+- Target(타겟)
+  - 실제 비즈니스 로직을 수행하는 객체(Advice를 적용할 대상)
+- Proxy(프록시)
+  - Advice가 적용됐을 때, 생성되는 객체
+- Introduction
+  - target엔 없는 새로운 메서드나 인스턴스 변수를 추가하는 기능
+- Weaving(위빙)
+  - PointCut에 의해 결정된 Target의 JoinPoint에 Advice를 적용하는 것
+- Around
+  - Advice의 종류 중 하나
+  - Before:Target 메서드 호출 이전에 적용
+  - AfterRunning:Target 메서드가 성공적으로 실행되고, 결과값 리턴한 뒤 적용
+  - AfterThrowing:Target 메서드에서 예외 발생 이후 적용
+  - After: Target 메서드에서 예외 발생에 관계없이 적용
+  - Around: Target메서드 호출 이전가 이후 모두 적용(메서드의 호출 자체를 제어할 수 있어 가장 강력)
+- execution
+  - @Around안에서 Exception으로 시작하는 구문은 포인트컷을 지정하는 문법
+  - execution(Example get*(..))
+    - 리턴 타입이 Example이고 메서드 이름이 get으로 시작하고 파라미터가 0개 이상인 모든 메서드가 호출 될때
+  - execution(* com.may.aop.controller.*())
+    - 해당 패키지 밑에 파라미터가 없는 모든 메서드가 호출될 때
+  - execution(* com.may.aop.controller.*(..))
+    - 해당 패키지 밑에 파리미터가 0개 이상인 모든 메서드가 호출될 때
+  - execution(* com.may.aop..get(*))
+    - com.may.aop 패키지의 모든 하위 패키지에 존재하는 get으로 시작하고 파라미터가 한개인 모든 메서드가 호출될때
+  - execution(* com.may.aop..get(*,*))
+    - 패키지의 모든 하위 패키지에 존자하는 get으로 시작하고, 파라미터가 두 개인 모든 메서드가 호출될 때 
+- ProceedingJoinPoint
+  - ProceedingJoinPoint 인터페이스가 상속받는 클래스가 포함하는 메서드
+  - Object[] getArgs()
+    - 전달되는 모든 파라미터들을 Object타입의 배열로 가지고옴
+  - String getKind()
+    - 해당 Advice의 타입을 가지고옴
+  - Signature getSignature()
+    - 실행되는 대상 객체의 메서드에 대한 정보를 가지고 옴
+  - Object getTarget()
+    - Target 객체를 가지고 옴
+  - Object getThis()
+    - Advice를 행하는 객체를 가지고 옴
