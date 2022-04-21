@@ -1,4 +1,4 @@
-# Study_storage
+ # Study_storage
 공부한 md파일 저장소!
 
 > 2022-03-29    
@@ -59,3 +59,9 @@
 - Spring Filter, interceptor 정리
   - https://astrid-dm.tistory.com/465 참고
   - https://astrid-dm.tistory.com/m/466 참고
+> 2020-04-21
+- 트리 정리
+  - https://m.blog.naver.com/rlakk11/60159303809 참고
+  - https://juhee-maeng.tistory.com/94 참고
+  - https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html 참고
+  - https://yoongrammer.tistory.com/68#%EC%82%AC%EC%9A%A9_%EC%82%AC%EB%A1%80 참고
