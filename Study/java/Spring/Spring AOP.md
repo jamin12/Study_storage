@@ -242,3 +242,6 @@
     - Target 객체를 가지고 옴
   - Object getThis()
     - Advice를 행하는 객체를 가지고 옴
+# 참고
+- https://mangkyu.tistory.com/121
+- https://congsong.tistory.com/25

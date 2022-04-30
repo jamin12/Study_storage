@@ -248,3 +248,5 @@
             ​
             transaction.commit();
           - em.close() - 영속성 컨텍스트를 
+# 참고
+- https://ict-nroo.tistory.com/130

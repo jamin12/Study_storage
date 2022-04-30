@@ -280,3 +280,6 @@
    - 위의 코드를 여러번 실행하면 비결정적인 Parallel Stream에 따라 출력 결과가 항상 바뀌어야 한다. 다른 출력겨로가는 항상 바뀌지만 sort는 main Thread에서 순차적으로 실행되는 것을 확인할 수 있다. 이러한 이유는 Parallel Stream에서의 sortrk 내부적으로 java8의 새로운 메소드인 Arrays.parallelSort()를 사용하기 때문이다.
    - 어떤 임계값을 계산하여 배열의 길이가 그 크기보다 작으면 순차적인 정렬방식인 Arrays.sort()를 이용한다. 여기서 임계값은 결국 프로세스에 할당 가능한 배열의 길이일 것이다. 위의 예제에서는 Arrays.sort()가 사용되었지만 만약 배열의 크기를 상당히 크게 한다면 parallelSort()가 사용될 것이다.
    - 앞서 설명한대로 Parallel Stream의 경우 Combiner등과 같은 추가ㅇ적인 연산이 필요로 하게 된다. 그렇게 때문에 적절한 상황에 Parallel 하게 처리하도록하는 것이 중요하다.
+
+# 참고
+- https://mangkyu.tistory.com/115

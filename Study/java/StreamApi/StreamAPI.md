@@ -254,3 +254,6 @@
    - 생성자도 메소드 참조를 할 수 있다. 생성자는 new로 생성해주므로 클래스이름::new로 참조할 수 있다. Supplier는 매개변수가 없이 반환값만을 갖는 인터페이스이기 떄문에 매개변수 없이 String객체를 새롭게 생성하는 String의 생성자를 참조하여 Supplier로 선언할 수 있다.
    - ``` java
          Supplier<String> supplier = String::new;
+
+# 참고
+- https://mangkyu.tistory.com/113 
