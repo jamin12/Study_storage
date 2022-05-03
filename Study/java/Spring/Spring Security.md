@@ -145,7 +145,8 @@
         @Override protected void configure(AuthenticationManagerBuilder auth) throws Exception { 
             auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder()); 
         } 
-        @Bean public PasswordEncoder passwordEncoder(){ 
+        @Bean 
+        public PasswordEncoder passwordEncoder(){ 
             return new BCryptPasswordEncoder(); 
         }
    - __<span style="color:#14a492">GrantedAuthority</span>__
