@@ -124,9 +124,11 @@
             } 
             @Bean 
             public CustomAuthenticationFilter customAuthenticationFilter() throws Exception {
-                CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManager()); customAuthenticationFilter.setFilterProcessesUrl("/user/login");
+                CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManager()); 
+                customAuthenticationFilter.setFilterProcessesUrl("/user/login");
                 customAuthenticationFilter.setAuthenticationSuccessHandler(customLoginSuccessHandler());
-                customAuthenticationFilter.afterPropertiesSet(); return customAuthenticationFilter; 
+                customAuthenticationFilter.afterPropertiesSet(); 
+                return customAuthenticationFilter; 
             } 
             @Bean 
             public CustomLoginSuccessHandler customLoginSuccessHandler() { 
