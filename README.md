@@ -69,3 +69,7 @@
 - 스프링 시큐리티 정리
   - https://mangkyu.tistory.com/77
   - https://mangkyu.tistory.com/76
+> 2022-05-16
+  - 파이썬 데코레이터 정리
+    - https://engineer-mole.tistory.com/219
+    - https://www.daleseo.com/python-dataclasses/
