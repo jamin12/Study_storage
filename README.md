@@ -73,3 +73,6 @@
   - 파이썬 데코레이터 정리
     - https://engineer-mole.tistory.com/219
     - https://www.daleseo.com/python-dataclasses/
+> 2022-05-18
+  - 깃 커밋 메시지 규칙
+    - https://junhyunny.github.io/information/github/git-commit-message-rule/
