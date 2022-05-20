@@ -76,3 +76,9 @@
 > 2022-05-18
   - 깃 커밋 메시지 규칙
     - https://junhyunny.github.io/information/github/git-commit-message-rule/
+> 2022-05-23
+  - 자바 basic(자바 컴파일 과정)
+    - https://developer-youn.tistory.com/38
+    - https://gyoogle.dev/blog/computer-language/Java/%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EA%B3%BC%EC%A0%95.html
+  - 자바 basic(컴파일러 인터프리터 차이)
+    - https://velog.io/@jhur98/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%ACcompiler%EC%99%80-%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0interpreter%EC%9D%98-%EC%B0%A8%EC%9D%B4
