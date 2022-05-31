@@ -59,3 +59,7 @@
 - 이 경우 SQL 주입을 쉽게 수행할 수 있다. 따라서 문자열이 변경되면 시간이 지남에 따라 보안 성능이 저하될 수 있다.
 - 또한 문자열 사용자 이름이 다른 스레드에 표시될 수 있으며, 이 스레드는 무결성 검사 후 해당 값을 변경할 수 있다.
 - 이러한 보안 이슈가 있기 때문에 자바에서는 String을 불변 객체로 만들었다.
+
+# 참고
+- https://starkying.tistory.com/entry/why-java-string-is-immutable
+- https://devlog-wjdrbs96.tistory.com/247

@@ -93,3 +93,11 @@
   - 분류모델 평가지표
     - https://bigdaheta.tistory.com/53?category=965501
     - https://www.youtube.com/watch?v=tm8DXLwdGII&t=71s&ab_channel=%EC%97%98%EB%A6%AC%EC%8C%A4%EA%B3%BC%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5
+> 2020-05-31
+  - javabasic(String,Stringbuilder,Stringbuffer)
+    - https://ifuwanna.tistory.com/
+  - javabasic(String이 불변 객체인 이유)
+    - https://starkying.tistory.com/entry/why-java-string-is-immutable
+    - https://devlog-wjdrbs96.tistory.com/247
+  - basic(OOP특징)
+    - 
