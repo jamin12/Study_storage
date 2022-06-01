@@ -102,3 +102,10 @@
   - basic(OOP특징)
     - https://theheydaze.tistory.com/603
     - https://theheydaze.tistory.com/603
+> 2020-06-01
+  - @SpringBootApplication 정리
+    - [@SpringBootApplication](https://bamdule.tistory.com/31)
+  - DI IOC정리
+    - https://mangkyu.tistory.com/150
+    - https://steady-hello.tistory.com/120
+    - https://bcp0109.tistory.com/226
