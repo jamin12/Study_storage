@@ -283,7 +283,22 @@
     //3. 동일한 경우에만 회원정보를 수정해야 안전하다.
     if (service.modifyMember(memberModel)) {
     ...
-
+# 부적절한 인가
+## __<span style="color:#9999ff">개요</span>__
+- 프로그램이 모든 가능한 실행결로에 대해서 접근제어를 검사하지 않거나 불완전하게 검사하는 경우, 공경자는 접근 가능한 실행경로를 통해 정보를 유출할 수 있다.
+## __<span style="color:#9999ff">보안대책</span>__
+- 응용프로그램이 제공하는 정보와 기능을 역할에 따라 배분함으로써 공격자에게 노출되는 공격노출면을 최소화하고 사용자의 권한에 따른 ACL을 관리한다. 프레임워크(JAAS Authentication Framewor나 OWASP ESAPI access Control)을 사용해 취약점을 피할 수 있다.
+## __<span style="color:#9999ff">코드예제</span>__
+- 사용자의 권한 확인을 위한 별도의 통제가 적용되지 않고 있다.
+- ``` java
+    private BoardDao boardDao;
+    String action = request.getParameter("action");
+    String contentId = request.getParameter("contentId");
+    //요청을 하는 사용자의 delete 작원 권한 확인 없이 수행하고 있어 안전하지 않다.
+    if (action != null && action.equals("delete")) {
+    boardDao.delete(contentId);
+    }
+- 
 # 취약한 암호화 알고리즘 사용
 ## __<span style="color:#9999ff">개요</span>__
 - **SW 개발자들은 환경설정 파일에 저장된 패스워드를 보호하기 위하여 간단한 인코딩 함수를 이용하여 패스워드를 감추는 방법을 사용하기도 한다. 그렇지만 base64와 같은 지나치게 간단한 인코딩 함수로는 패스워드를 제대로 보호할 수 없다**
