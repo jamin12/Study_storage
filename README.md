@@ -111,3 +111,5 @@
     - https://bcp0109.tistory.com/226
 > 2020-06-01
   - Securityguide 정리
+> 2020-06-04
+  - XSS,SQLinejction,insecure Communication, Access Control Flaws 정리

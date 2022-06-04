@@ -1,0 +1,11 @@
+# Access Control Flaws
+- 권한이 없는 혹은 부족한 상태에서 특정 객체나 자원에 접근할 수 있는 취약점이다.
+- __<span style="color:#ff9933">Using an Role-base access control</span>__
+  - 
+  - 역할권한 관리 /역할 할당
+  - 체계 손상 -> 사용자가 할당된 역할에서 허용하지 않는 액세스 수행가능, 권한 없는 역할로 권한 상승 가능
+  - 접근제어 매트릭스 사용
+- __<span style="color:#ff9933">Bypass a Path abse Access Control</span>__
+  - 
+  - 경로기반접근제어 -> 상대 경로 정보를 활용하여 경로 통과 가능
+  - 상대경로를 사용하여 일반적으로 다른 사람이 액세스할 수 없는 파일에 액세스 가능
