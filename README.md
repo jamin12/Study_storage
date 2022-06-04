@@ -112,4 +112,4 @@
 > 2020-06-01
   - Securityguide 정리
 > 2020-06-04
-  - XSS,SQLinejction,insecure Communication, Access Control Flaws 정리
+  - XSS,SQLinejction,insecure Communication, Access Control Flaws, 취약점 탐지 정리
