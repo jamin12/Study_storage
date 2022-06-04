@@ -109,3 +109,5 @@
     - https://mangkyu.tistory.com/150
     - https://steady-hello.tistory.com/120
     - https://bcp0109.tistory.com/226
+> 2020-06-01
+  - Securityguide 정리

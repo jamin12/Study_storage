@@ -296,9 +296,21 @@
     String contentId = request.getParameter("contentId");
     //요청을 하는 사용자의 delete 작원 권한 확인 없이 수행하고 있어 안전하지 않다.
     if (action != null && action.equals("delete")) {
-    boardDao.delete(contentId);
+        boardDao.delete(contentId);
     }
-- 
+- 사용자가 삭제작업을 수행할 권한이 있는지 확인한 뒤 권한이 있는 경우에만 수행하도록 해야한다.
+- ``` java
+    private BoardDao boardDao;
+    String action = request.getParameter("action");
+    String contentId = request.getParameter("contentId");
+    // 세션에 저장된 사용자 정보를 얻어온다.
+    User user= (User)session.getAttribute("user");
+    // 사용자정보에서 해당 사용자가 delete작업의 권한이 있는지 확인한 뒤 삭제 작업을 수행한다.
+    if (action != null && action.equals("delete") &&
+        checkAccessControlList(user,action)) {
+        boardDao.delete(contenId);
+        }
+    }
 # 취약한 암호화 알고리즘 사용
 ## __<span style="color:#9999ff">개요</span>__
 - **SW 개발자들은 환경설정 파일에 저장된 패스워드를 보호하기 위하여 간단한 인코딩 함수를 이용하여 패스워드를 감추는 방법을 사용하기도 한다. 그렇지만 base64와 같은 지나치게 간단한 인코딩 함수로는 패스워드를 제대로 보호할 수 없다**
@@ -336,11 +348,13 @@
     c.init(Cipher.ENCRYPT_MODE, k);
     rslt = c.update(msg);
     }
-# 암호화되지 않은 중요정보
+# 중요정보 평문저장
 ## __<span style="color:#9999ff">개요</span>__
-- 사용자 또는 시스템의 중요정보가 포한된 데이터를 평문으로 송.수신 또는 저장할 때 인가되지 않은 사용자에게 민감한 정보가 노출될 수 있는 보안약점이다.
+- 많은 응용프로그램은 메모리나 디스크에서 중요한 데이터(개인정보, 인증정보, 금융정보)를 처리한다. 이러한 중요 데이터가 제대로 보호되지 않을 경우, 보안이나 데이터의 무결성을 잃을 수 있다. 특히 프로그램이 개인정보, 인증정보 등의 사용자 중요정보 및 시스템 중요정보를 처리하는 과정에서 이를 평문으로 저장할 경우 공격자에게 민감한 정보가 노출될 수 있다.
+
 ## __<span style="color:#9999ff">보안대책</span>__
-- 개인정보, 금융정보, 패스워드 등 중요정보를 통신채널로 전송하거나 저장할 때는 반드시 암호화 과정을 거쳐야한다.필요한 경우 SSL 또는HTTPS 등과 같은 암호채널을 사용해야 하며, HTTPS와 같은 보안 채녈을 사용하여 브라우저쿠키에 중요 데이터를 저장하는 경우, 쿠키객체에 보안속성을 반드시 설정하여 중요정보의 노출을방지한다. 중요정보를 읽거나 쓸 경우에 권한인증 등으로 적합한 사용자가 중요정보에 접근하도록 해야 한다
+- 개인정보(주민등록번호, 여권번호 등), 금융정보(카드번호, 계좌번호 등), 패스워드 등 중요정보를 저장할 때는 반드시 암호화하여 저장해야 하며, 중요정보를 읽거나 쓸 경우에 권한인증 등을 통해 적합한 사용자가 중요정보에 접근하도록 해야 한다.
+
 ## __<span style="color:#9999ff">코드예제</span>__
 - 중요정보 평문저장
 - 안전하지 않은 코드
@@ -381,8 +395,27 @@
       stmt.setString(2, pwd);
       ......
       stmt.executeUpdate();
-  - __<span style="color:#14a492">AES등의 안전한 암호알고리즘으로 암호화.</span>__
-  - ``` java
+
+# 중요정보 평문전송
+## __<span style="color:#9999ff">개요</span>__
+- 사용자 또는 시스템의 중요정보가 포한된 데이터를 평문으로 송.수신 또는 저장할 때 인가되지 않은 사용자에게 민감한 정보가 노출될 수 있는 보안약점이다.
+## __<span style="color:#9999ff">보안대책</span>__
+- 개인정보, 금융정보, 패스워드 등 중요정보를 통신채널로 전송하거나 저장할 때는 반드시 암호화 과정을 거쳐야한다.필요한 경우 SSL 또는HTTPS 등과 같은 암호채널을 사용해야 하며, HTTPS와 같은 보안 채녈을 사용하여 브라우저쿠키에 중요 데이터를 저장하는 경우, 쿠키객체에 보안속성을 반드시 설정하여 중요정보의 노출을방지한다. 중요정보를 읽거나 쓸 경우에 권한인증 등으로 적합한 사용자가 중요정보에 접근하도록 해야 한다
+  
+## __<span style="color:#9999ff">코드 예제</span>__
+- 안전하지 않은 코드
+- ``` java
+    try {
+    Socket s = new Socket("taranis", 4444);
+    PrintWriter o = new PrintWriter(s.getOutputStream(), true);
+    //패스워드를 평문으로 전송하여 안전하지 않다.
+    String password = getPassword();
+    o.write(password);
+    } catch (FileNotFoundException e) {
+    ……
+- 안전한 코드
+- AES등의 안전한 암호알고리즘으로 암호화.
+- ``` java
     // 패스워드를 암호화 하여 전송
     try {
     Socket s = new Socket("taranis", 4444);
@@ -394,8 +427,120 @@
     o.write(encPassword, 0, encPassword.length);
     } catch (FileNotFoundException e) {
     ……
+# 하드코드된 비밀번호
+## __<span style="color:#9999ff">개요</span>__
+- 프로그램 코드 내부에 하드코드된 패스워드를 포함하고 , 이를 이용하여 내부 인증에 사용하거나 외부 컴포넌트와 통신을 하는 경우, 관지라 정보가 노출될 수 있어 위험하다. 또한 코드 내부에 하드코드 된 패스워드가 인증실패를 야기하는 경우 시스템 관리자가 그 실패의 원인을 파악하기 쉽지 않은 단점이 있다.
+## __<span style="color:#9999ff">보안대책</span>__
+- 패스워드는 암호화하여 별도의 파일에 저장하여 사용하고 SW설치 시 사용하는 디폴트 패스워드, 키 등을 사용하는 대신 "최초-로그인"모드를 두어 사용자가 직접 패스워드나 키를 입력하도록 설계한다.
 
-# 하드코드된 중요정보
+## __<span style="color:#9999ff">코드예제</span>__
+- 데이터베이스 연결을 위한 패스워드를 소스코드 내부에 상수 형태로 하드코딩 하는경우 접속 정보가 노출될 수 있어 위험하다.
+- 안전하지 않은 코드
+- ``` java
+    public class MemberDAO {
+    private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String URL = "jdbc:oracle:thin:@192.168.0.3:1521:ORCL";
+    private static final String USER = "SCOTT"; // DB ID;
+    //DB 패스워드가 소스코드에 평문으로 저장되어 있다.
+    private static final String PASS = "SCOTT"; // DB PW;
+    ……
+    public Connection getConn() {
+    Connection con = null;
+    try {
+    Class.forName(DRIVER);
+    con = DriverManager.getConnection(URL, USER, PASS);
+    ……
+- 안전한 코드
+- ``` java
+    public class MemberDAO {
+    private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String URL = "jdbc:oracle:thin:@192.168.0.3:1521:ORCL";
+    private static final String USER = "SCOTT"; // DB ID
+    ……
+    public Connection getConn() {
+    Connection con = null;
+    try {
+    Class.forName(DRIVER);
+    //암호화된 패스워드를 프로퍼티에서 읽어들어 복화해서 사용해야한다.
+    String PASS = props.getProperty("EncryptedPswd");
+    byte[] decryptedPswd = cipher.doFinal(PASS.getBytes());
+    PASS = new String(decryptedPswd);
+    con = DriverManager.getConnection(URL, USER, PASS);
+    ……
+# 충분하지 않은 키 길이 사용
+## __<span style="color:#9999ff">개요</span>__
+- 길이가 짧은 키를 사용하는 것은 암호화 알고리즘을 취약하게 만들 수 있다. 키는 암호화 및 복호화에 사용되는데, 검증된 암호화 알고리즘을 사용하더라도 키 길이가 충분히 길지 않으면 짧은 시간 안에 키를 찾아낼 수 있고 이를 이용해 공격자가 암호화된 데이터나 패스워드를 복호화 할 수 있게 된다.
+## __<span style="color:#9999ff">보안대책</span>__
+- RSA 알고리즘은 적어도 2,048 비트 이상의 길이를 가진 키와 함께 사용해야 하고, 대칭암호화 알고리즘(Symmetric Encryption Algorithm)의 경우에는 적어도 128비트 이상의 키를 사용한다.
+## __<span style="color:#9999ff">코드예제</span>__
+- 보안성이 강한 RSA알고리즘을 사용에도 불구하고 키 사이즈를 잘게 설정해 프로그램의 보안 약점을 야기한 경우이다.
+- 안전하지 않은 코드
+- ``` java
+    public static final String ALGORITHM = "RSA";
+    public static final String PRIVATE_KEY_FILE = "C:/keys/private.key";
+    public static final String PUBLIC_KEY_FILE = "C:/keys/public.key";
+    public static void generateKey() {
+    try {
+    final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
+    //RSA 키 길이를 1024 비트로 짧게 설정하는 경우 안전하지 않다.
+    keyGen.initialize(1024);
+    final KeyPair key = keyGen.generateKeyPair();
+    File privateKeyFile = new File(PRIVATE_KEY_FILE);
+    File publicKeyFile = new File(PUBLIC_KEY_FILE);
+- 안전한 코드
+- ``` java
+    public static final String ALGORITHM = "RSA";
+    public static final String PRIVATE_KEY_FILE = "C:/keys/private.key";
+    public static final String PUBLIC_KEY_FILE = "C:/keys/public.key";
+    public static void generateKey() {
+    try {
+    final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
+    keyGen.initialize(2048);
+    final KeyPair key = keyGen.generateKeyPair();
+    File privateKeyFile = new File(PRIVATE_KEY_FILE);
+    File publicKeyFile = new File(PUBLIC_KEY_FILE);
+# 적절하지 않은 난수값 사용
+## __<span style="color:#9999ff">개요</span>__
+- 예측 가능한 난수를 사용하는 것은 시스템에 보안약점을 유발한다. 예측 불가능한 숫자가 필요한 상황에서 예측 가능한 난수를 사용한다면, 공격자는 SW에서 생성되는 다음 숫자를 예상하여 시스템을 공격하는 것이 가능하다.
+## __<span style="color:#9999ff">보안대책</span>__
+- 컴퓨터의 난수발생기는 난수 값을 결정하는 시드(Seed)값이 고정될 경우, 매번 동일한 난수값이 발생 한다. 이를 최대한 피하기 위해 Java에서는 Random()과 Math.random() 사용 시 java.util.Random 클래스에서 기본값으로 현재시간을 기반으로 조합하여 매번 변경 되는 시드(Seed)값을 사용하며, C 에서는 rand()함수 사용 시 매번 변경되는 기본 시드(Seed)값이 없으므로, srand()를 통해 매번 변경 되는 현재시간 기반 등으로 시드(Seed)값을 설정 하여야 한다. 그러나 세션 ID, 암호화키 등 보안결정을 위한 값을 생성하고 보안결정을 수행하는 경우에는, Java 에서 Random()과 Math.random()을 사용 하지 말아야 하며, 예측이 거의 불가능하게 암호학적으로 보호된 java.security.SecureRandom 클래스를 사용하는 것이 안전하다
+## __<span style="color:#9999ff">코드예제</span>__
+- java.util.Random 클래스의 random() 메소드 사용시, 고정된 seed를 설정하면 동일한 난수 값이 생성되어 안전하지 않다. 매번 변경되는 seed를 설정하더라도 보안결정을 위한 난수 이용시에는 안전하지 않다.
+- 안전하지 않은 코드
+- ``` java
+    import java.util.Random;
+    ...
+    public Static int getRandomValue(int maxValue) {
+    //고정된 시드값을 사용하여 동일한 난수값이 생성되어 안전하지 않다.
+    Random random = new Random(100);
+    return random.nextInt(maxValue);
+    }
+    public Static String getAuthKey() {
+    //매번 변경되는 시드값을 사용하여 다른 난수값이 생성되나 보안결정을 위한 난수로는 안전하지 않다.
+    Random random = new Random();
+    String authKey = Integer.toString(random.nextInt());
+- 안전한 코드
+- ``` java
+    import java.util.Random;
+    import java.security.SecureRandom;
+    ...
+    public Static int getRandomValue(int maxValue) {
+    //setSeed를 통해 매번 변경되는 시드값을 설정 하거나, 기본값인 현재 시간 기반으로 매번 변경되는
+    시드값을 사용하도록 한다.
+    Random random = new Random();
+    return random.nextInt(maxValue);
+    }
+    public Static String getAuthKey() {
+    //보안결정을 위한 난수로는 예측이 거의 불가능하게 암호학적으로 보호된 SecureRandom을 사용한다.
+    try{
+    SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    secureRandom.setSeed(secureRandom.generateSeed(128));
+    String authKey = new String(digest.digest((secureRandom.nextLong() +
+    "").getBytes()));
+    ...
+    } catch (NoSuchAlgorithmException e) {
+# 하드코드된 암호화 키
 ## __<span style="color:#9999ff">개요</span>__
 - 프로그램 코드 내부에 하드코드된 패스워드 또는 암호화키를 포함하여 내부 인증에 사용하거나 암호화를 수행하면 중요정보(관리자 정보, 암호화된 정보 등)가 유출될 수 있는 보안약점이다.
 ## __<span style="color:#9999ff">보안대책</span>__
@@ -422,37 +567,6 @@
     Decrypt(iv)),
     CryptoStreamMode.Write);
 
-# 충분하지 않은 키 길이 사용
-## __<span style="color:#9999ff">개요</span>__
-- 길이가 짧은 키를 사용하는 것은 암호화 알고리즘을 취약하게 만들 수 있다. 키는 암호화 및 복호화에 사용되는데, 검증된 암호화 알고리즘을 사용하더라도 키 길이가 충분히 길지 않으면 짧은 시간 안에 키를 찾아낼 수 있고 이를 이용해 공격자가 암호화된 데이터나 패스워드를 복호화 할 수 있게 된다
-## __<span style="color:#9999ff">보안대책</span>__
-- **RSA 알고리즘은 적어도 2,048 비트 이상의 길이를 가진 키와 함께 사용해야 하고, 대칭암호화 알고리즘(Symmetric Encryption Algorithm)의 경우에는 적어도 128비트 이상의 키를 사용한다.**
-## __<span style="color:#9999ff">코드예제</span>__
-- 안전하지 않은 코드
-- ``` java
-    public static final String ALGORITHM = "RSA";
-    public static final String PRIVATE_KEY_FILE = "C:/keys/private.key";
-    public static final String PUBLIC_KEY_FILE = "C:/keys/public.key";
-    public static void generateKey() {
-    try {
-    final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
-    // RSA 키 길이를 1024 비트로 짧게 설정하는 경우 안전하지 않다.
-    keyGen.initialize(1024);
-    final KeyPair key = keyGen.generateKeyPair();
-    File privateKeyFile = new File(PRIVATE_KEY_FILE);
-    File publicKeyFile = new File(PUBLIC_KEY_FILE);
-- 안전한 코드
-- ``` java
-    public static final String ALGORITHM = "RSA";
-    public static final String PRIVATE_KEY_FILE = "C:/keys/private.key";
-    public static final String PUBLIC_KEY_FILE = "C:/keys/public.key";
-    public static void generateKey() {
-    try {
-    final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
-    keyGen.initialize(2048);
-    final KeyPair key = keyGen.generateKeyPair();
-    File privateKeyFile = new File(PRIVATE_KEY_FILE);
-    File publicKeyFile = new File(PUBLIC_KEY_FILE);
 # 취약한 비밀번호 허용
 ## __<span style="color:#9999ff">개요</span>__
 - 사용자에게 강한 비밀번호 조합규칙을 요구하지 않으면, 사용자 계정이 취약하게 된다. 안전한 비밀번호를 생성하기 위해서는 「패스워드 선택 및 이용 안내서」의 안전한 패스워드 설정규칙을 적용해야 한다.
@@ -491,10 +605,10 @@
     StringBuffer hexString = new StringBuffer();
     for (int i=0; i<byteData.length i++) {
     String hex=Integer.toHexString(0xff & byteData[i]);
-    if (hex.length() == 1) {
-    hexString.append('0');
-    }
-    hexString.append(hex);
+        if (hex.length() == 1) {
+            hexString.append('0');
+        }
+        hexString.append(hex);
     }
     return hexString.toString();
     }
@@ -508,15 +622,29 @@
     byte byteData[] = md.digest();
     StringBuffer hexString = new StringBuffer();
     for (int i=0; i<byteData.length i++) {
-    String hex=Integer.toHexString(0xff & byteData[i]);
-    if (hex.length() == 1) {
-    hexString.append('0');
-    }
-    hexString.append(hex);
+        String hex=Integer.toHexString(0xff & byteData[i]);
+        if (hex.length() == 1) {
+            hexString.append('0');
+        }
+        hexString.append(hex);
     }
     return hexString.toString()
     }
-
+# 주석문 안에 포함된 시스템 주요정보
+## __<span style="color:#9999ff">개요</span>__
+- 패스워드를 주석문에 넣어두면 시스템 보안이 훼손될 수 있다. 소프트웨어 개발자가 편의를 위해서 주석문에 패스워드를 적어둔 경우, 소프트웨어가 완성된 후에는 그것을 제거하는 것이 매우 어렵게 된다. 또한, 공격자가 소스코드에 접근할 수 있다면, 아주 쉽게 시스템에 침입할 수 있다.
+## __<span style="color:#9999ff">보안대책</span>__
+- 주석에는 ID 패스워드 등 보안과 관련된 내용을 기입하지 않는다.
+## __<span style="color:#9999ff">코드 예제</span>__
+- 안전하지 않은 코드
+- ``` java
+    //주석문을 통해 DB연결 ID, 패스워드의 중요한 정보를 노출시켜 안전하지 않다.
+    // DB연결 root / a1q2w3r3f2!@
+    con = DriverManager.getConnection(URL, USER, PASS);
+- 안전한 코드
+- ``` java
+    // ID, 패스워드등의 중요 정보는 주석에 포함해서는 안된다.
+    con = DriverManager.getConnection(URL, USER, PASS)
 ---
 ## __<span style="color:#ff9933">에러처리</span>__
 ---
