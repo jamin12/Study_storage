@@ -113,6 +113,8 @@
   - Securityguide 정리
 > 2020-06-04
   - XSS,SQLinejction,insecure Communication, Access Control Flaws, 취약점 탐지 정리
+> 2020-06-06
+  - 보안, 정책, 조직, 솔루션 정리
 > 2020-06-20
   - 코딩 테스트
     - [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
