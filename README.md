@@ -82,9 +82,9 @@
     - https://gyoogle.dev/blog/computer-language/Java/%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EA%B3%BC%EC%A0%95.html
   - 자바 basic(컴파일러 인터프리터 차이)
     - https://velog.io/@jhur98/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%ACcompiler%EC%99%80-%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0interpreter%EC%9D%98-%EC%B0%A8%EC%9D%B4
-> 2020-05-27
+> 2022-05-27
   - 보안 정리중...
-> 2020-05-29
+> 2022-05-29
   - CNN 정리
     - http://taewan.kim/post/cnn/
     - https://excelsior-cjh.tistory.com/180
@@ -93,7 +93,7 @@
   - 분류모델 평가지표
     - https://bigdaheta.tistory.com/53?category=965501
     - https://www.youtube.com/watch?v=tm8DXLwdGII&t=71s&ab_channel=%EC%97%98%EB%A6%AC%EC%8C%A4%EA%B3%BC%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5
-> 2020-05-31
+> 2022-05-31
   - javabasic(String,Stringbuilder,Stringbuffer)
     - https://ifuwanna.tistory.com/
   - javabasic(String이 불변 객체인 이유)
@@ -102,20 +102,26 @@
   - basic(OOP특징)
     - https://theheydaze.tistory.com/603
     - https://theheydaze.tistory.com/603
-> 2020-06-01
+> 2022-06-01
   - @SpringBootApplication 정리
     - [@SpringBootApplication](https://bamdule.tistory.com/31)
   - DI IOC정리
     - https://mangkyu.tistory.com/150
     - https://steady-hello.tistory.com/120
     - https://bcp0109.tistory.com/226
-> 2020-06-01
+> 2022-06-01
   - Securityguide 정리
-> 2020-06-04
+> 2022-06-04
   - XSS,SQLinejction,insecure Communication, Access Control Flaws, 취약점 탐지 정리
-> 2020-06-06
+> 2022-06-06
   - 보안, 정책, 조직, 솔루션 정리
-> 2020-06-20
+> 2022-06-20
   - 코딩 테스트
     - [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
     - [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
+> 2022-06-23
+  - 코딩테스트
+    - [소수찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
+  - 에라토스테네스의 체 정리
+    - https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
+    - https://coding-factory.tistory.com/600
