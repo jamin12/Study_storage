@@ -132,3 +132,6 @@
   - 코딩테스트
     - [오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888?language=python3)
     - [최대공약수,최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+> 2022-07-02
+  - 코딩테스트
+    - [소수찾기2](https://programmers.co.kr/learn/courses/30/lessons/42839)
