@@ -135,3 +135,9 @@
 > 2022-07-02
   - 코딩테스트
     - [소수찾기2](https://programmers.co.kr/learn/courses/30/lessons/42839)
+  - 콜백함수
+    - https://yulfsong.tistory.com/89
+    - https://www.hanumoka.net/2018/10/24/javascript-20181024-javascript-callback/
+  - promise
+    - https://elvanov.com/2597
+    - https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
