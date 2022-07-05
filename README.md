@@ -141,3 +141,6 @@
   - promise
     - https://elvanov.com/2597
     - https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
+> 2022-07-06
+  - 코딩 테스트
+    - [n개의 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12953)
