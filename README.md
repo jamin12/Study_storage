@@ -144,3 +144,6 @@
 > 2022-07-06
   - 코딩 테스트
     - [n개의 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12953)
+> 2022-07-07
+  - 코딩 테스트
+    - [영어끝말잇기](https://school.programmers.co.kr/learn/courses/30/lessons/12981)
