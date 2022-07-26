@@ -147,3 +147,6 @@
 > 2022-07-07
   - 코딩 테스트
     - [영어끝말잇기](https://school.programmers.co.kr/learn/courses/30/lessons/12981)
+> 2022-07-26
+  - 코딩 테스트
+    - [후보키](https://school.programmers.co.kr/learn/courses/30/lessons/42890)

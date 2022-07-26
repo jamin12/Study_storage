@@ -29,4 +29,5 @@ print(solution([2,6,8,14]))
 print(solution([6015240, 1507968, 4530816]))
 ```
 # 
+출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
 - [n개의 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12953)
