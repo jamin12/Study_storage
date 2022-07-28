@@ -40,6 +40,15 @@ pm2 stop app_name
 # 삭제
 pm2 delete app_name 
 
+# 현재 프로세스 저장
+pm2 save
+
+# 컴퓨터 재시작시 자동으로 프로세스 시작
+pm2 startup
+
+# 이전에 저장한 프로세스들 실행
+pm2 resurrect
+
 ```
 - 클러스터 모드
 - ```
