@@ -150,3 +150,7 @@
 > 2022-07-26
   - 코딩 테스트
     - [후보키](https://school.programmers.co.kr/learn/courses/30/lessons/42890)
+> 2022-07-28
+  - pm2
+    - https://armadillo-dev.github.io/javascript/nodejs/node-js-pm2/
+    - https://pm2.keymetrics.io/docs/usage/quick-start/
