@@ -160,3 +160,7 @@
     - https://www.youtube.com/watch?v=QFHyPInNhbo&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
     - https://www.youtube.com/watch?v=S1bVARd2OSE&t=105s&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
     - https://velog.io/@titu/JavaScript-Task-Queue%EB%A7%90%EA%B3%A0-%EB%8B%A4%EB%A5%B8-%ED%81%90%EA%B0%80-%EB%8D%94-%EC%9E%88%EB%8B%A4%EA%B3%A0-MicroTask-Queue-Animation-Frames-Render-Queue
+> 2022-09-07
+  - database index
+    - https://choicode.tistory.com/27
+    - https://rebro.kr/167
