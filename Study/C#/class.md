@@ -112,29 +112,29 @@
     // 클래스 내의 이벤트 정의
     class MyButton
     {
-    public string Text;
-    // 이벤트 정의
-    public event EventHandler Click;
+        public string Text;
+        // 이벤트 정의
+        public event EventHandler Click;
 
-    public void MouseButtonDown()
-    {
-        if (this.Click != null)
+        public void MouseButtonDown()
         {
-            // 이벤트핸들러들을 호출
-            Click(this, EventArgs.Empty);
+            if (this.Click != null)
+            {
+                // 이벤트핸들러들을 호출
+                Click(this, EventArgs.Empty);
+            }
         }
-    }
     }
 
     // 이벤트 사용
     public void Run()
     {
-    MyButton btn = new MyButton();
-    // Click 이벤트에 대한 이벤트핸들러로
-    // btn_Click 이라는 메서드를 지정함
-    btn.Click += new EventHandler(btn_Click);
-    btn.Text = "Run";
-    //....
+        MyButton btn = new MyButton();
+        // Click 이벤트에 대한 이벤트핸들러로
+        // btn_Click 이라는 메서드를 지정함
+        btn.Click += new EventHandler(btn_Click);
+        btn.Text = "Run";
+        //....
     }
 
     void btn_Click(object sender, EventArgs e)
@@ -145,3 +145,5 @@
 - [필드](https://antstudy.tistory.com/66)
 - [참조](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/ref)
 - [속성](https://076923.github.io/posts/C-31/)
+- [이벤트](http://www.csharpstudy.com/CSharp/CSharp-event.aspx)
+- [메서드](http://www.csharpstudy.com/CSharp/CSharp-method.aspx)
