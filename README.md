@@ -164,3 +164,8 @@
   - database index
     - https://choicode.tistory.com/27
     - https://rebro.kr/167
+> 2022-09-10
+  - c# class
+    - [필드](https://antstudy.tistory.com/66)
+    - [참조](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/ref)
+    - [속성](https://076923.github.io/posts/C-31/)
