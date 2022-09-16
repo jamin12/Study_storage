@@ -70,106 +70,118 @@
   - https://mangkyu.tistory.com/77
   - https://mangkyu.tistory.com/76
 > 2022-05-16
-  - 파이썬 데코레이터 정리
-    - https://engineer-mole.tistory.com/219
-    - https://www.daleseo.com/python-dataclasses/
+- 파이썬 데코레이터 정리
+  - https://engineer-mole.tistory.com/219
+  - https://www.daleseo.com/python-dataclasses/
 > 2022-05-18
-  - 깃 커밋 메시지 규칙
-    - https://junhyunny.github.io/information/github/git-commit-message-rule/
+- 깃 커밋 메시지 규칙
+  - https://junhyunny.github.io/information/github/git-commit-message-rule/
 > 2022-05-23
-  - 자바 basic(자바 컴파일 과정)
-    - https://developer-youn.tistory.com/38
-    - https://gyoogle.dev/blog/computer-language/Java/%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EA%B3%BC%EC%A0%95.html
-  - 자바 basic(컴파일러 인터프리터 차이)
-    - https://velog.io/@jhur98/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%ACcompiler%EC%99%80-%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0interpreter%EC%9D%98-%EC%B0%A8%EC%9D%B4
+- 자바 basic(자바 컴파일 과정)
+  - https://developer-youn.tistory.com/38
+  - https://gyoogle.dev/blog/computer-language/Java/%EC%BB%B4%ED%8C%8C%EC%9D%BC%20%EA%B3%BC%EC%A0%95.html
+- 자바 basic(컴파일러 인터프리터 차이)
+  - https://velog.io/@jhur98/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%ACcompiler%EC%99%80-%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0interpreter%EC%9D%98-%EC%B0%A8%EC%9D%B4
 > 2022-05-27
-  - 보안 정리중...
+- 보안 정리중...
 > 2022-05-29
-  - CNN 정리
-    - http://taewan.kim/post/cnn/
-    - https://excelsior-cjh.tistory.com/180
-    - https://all-young.tistory.com/43
-    - https://gruuuuu.github.io/machine-learning/cnn-doc/
-  - 분류모델 평가지표
-    - https://bigdaheta.tistory.com/53?category=965501
-    - https://www.youtube.com/watch?v=tm8DXLwdGII&t=71s&ab_channel=%EC%97%98%EB%A6%AC%EC%8C%A4%EA%B3%BC%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5
+- CNN 정리
+  - http://taewan.kim/post/cnn/
+  - https://excelsior-cjh.tistory.com/180
+  - https://all-young.tistory.com/43
+  - https://gruuuuu.github.io/machine-learning/cnn-doc/
+- 분류모델 평가지표
+  - https://bigdaheta.tistory.com/53?category=965501
+  - https://www.youtube.com/watch?v=tm8DXLwdGII&t=71s&ab_channel=%EC%97%98%EB%A6%AC%EC%8C%A4%EA%B3%BC%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5
 > 2022-05-31
-  - javabasic(String,Stringbuilder,Stringbuffer)
-    - https://ifuwanna.tistory.com/
-  - javabasic(String이 불변 객체인 이유)
-    - https://starkying.tistory.com/entry/why-java-string-is-immutable
-    - https://devlog-wjdrbs96.tistory.com/247
-  - basic(OOP특징)
-    - https://theheydaze.tistory.com/603
-    - https://theheydaze.tistory.com/603
+- javabasic(String,Stringbuilder,Stringbuffer)
+  - https://ifuwanna.tistory.com/
+- javabasic(String이 불변 객체인 이유)
+  - https://starkying.tistory.com/entry/why-java-string-is-immutable
+  - https://devlog-wjdrbs96.tistory.com/247
+- basic(OOP특징)
+  - https://theheydaze.tistory.com/603
+  - https://theheydaze.tistory.com/603
 > 2022-06-01
-  - @SpringBootApplication 정리
-    - [@SpringBootApplication](https://bamdule.tistory.com/31)
-  - DI IOC정리
-    - https://mangkyu.tistory.com/150
-    - https://steady-hello.tistory.com/120
-    - https://bcp0109.tistory.com/226
+- @SpringBootApplication 정리
+  - [@SpringBootApplication](https://bamdule.tistory.com/31)
+- DI IOC정리
+  - https://mangkyu.tistory.com/150
+  - https://steady-hello.tistory.com/120
+  - https://bcp0109.tistory.com/226
 > 2022-06-01
-  - Securityguide 정리
+- Securityguide 정리
 > 2022-06-04
-  - XSS,SQLinejction,insecure Communication, Access Control Flaws, 취약점 탐지 정리
+- XSS,SQLinejction,insecure Communication, Access Control Flaws, 취약점 탐지 정리
 > 2022-06-06
-  - 보안, 정책, 조직, 솔루션 정리
+- 보안, 정책, 조직, 솔루션 정리
 > 2022-06-20
-  - 코딩 테스트
-    - [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
-    - [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
+- 코딩 테스트
+  - [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
+  - [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
 > 2022-06-23
-  - 코딩테스트
-    - [소수찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
-  - 에라토스테네스의 체 정리
-    - https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
-    - https://coding-factory.tistory.com/600
+- 코딩테스트
+  - [소수찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
+- 에라토스테네스의 체 정리
+  - https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
+  - https://coding-factory.tistory.com/600
 > 2022-06-30
-  - 유클리드 호제법(최대공약수, 최소공배수)
-    - https://velog.io/@soyeon207/%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98GCD-%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98LCM-%EA%B3%BC-%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98Euclidean-algorithm
-    - https://chanhuiseok.github.io/posts/algo-41/
-  - 코딩테스트
-    - [오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888?language=python3)
-    - [최대공약수,최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+- 유클리드 호제법(최대공약수, 최소공배수)
+  - https://velog.io/@soyeon207/%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98GCD-%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98LCM-%EA%B3%BC-%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98Euclidean-algorithm
+  - https://chanhuiseok.github.io/posts/algo-41/
+- 코딩테스트
+  - [오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888?language=python3)
+  - [최대공약수,최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
 > 2022-07-02
-  - 코딩테스트
-    - [소수찾기2](https://programmers.co.kr/learn/courses/30/lessons/42839)
-  - 콜백함수
-    - https://yulfsong.tistory.com/89
-    - https://www.hanumoka.net/2018/10/24/javascript-20181024-javascript-callback/
-  - promise
-    - https://elvanov.com/2597
-    - https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
+- 코딩테스트
+  - [소수찾기2](https://programmers.co.kr/learn/courses/30/lessons/42839)
+- 콜백함수
+  - https://yulfsong.tistory.com/89
+  - https://www.hanumoka.net/2018/10/24/javascript-20181024-javascript-callback/
+- promise
+  - https://elvanov.com/2597
+  - https://joshua1988.github.io/web-development/javascript/promise-for-beginners/
 > 2022-07-06
-  - 코딩 테스트
-    - [n개의 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12953)
+- 코딩 테스트
+  - [n개의 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12953)
 > 2022-07-07
-  - 코딩 테스트
-    - [영어끝말잇기](https://school.programmers.co.kr/learn/courses/30/lessons/12981)
+- 코딩 테스트
+  - [영어끝말잇기](https://school.programmers.co.kr/learn/courses/30/lessons/12981)
 > 2022-07-26
-  - 코딩 테스트
-    - [후보키](https://school.programmers.co.kr/learn/courses/30/lessons/42890)
+- 코딩 테스트
+  - [후보키](https://school.programmers.co.kr/learn/courses/30/lessons/42890)
 > 2022-07-28
   - pm2
     - https://armadillo-dev.github.io/javascript/nodejs/node-js-pm2/
     - https://pm2.keymetrics.io/docs/usage/quick-start/
 > 2022-08-04
-  - js 작동원리
-    - https://ingg.dev/js-work/
-    - https://www.youtube.com/watch?v=QFHyPInNhbo&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
-    - https://www.youtube.com/watch?v=S1bVARd2OSE&t=105s&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
-    - https://velog.io/@titu/JavaScript-Task-Queue%EB%A7%90%EA%B3%A0-%EB%8B%A4%EB%A5%B8-%ED%81%90%EA%B0%80-%EB%8D%94-%EC%9E%88%EB%8B%A4%EA%B3%A0-MicroTask-Queue-Animation-Frames-Render-Queue
+- js 작동원리
+  - https://ingg.dev/js-work/
+  - https://www.youtube.com/watch?v=QFHyPInNhbo&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+  - https://www.youtube.com/watch?v=S1bVARd2OSE&t=105s&ab_channel=%EC%9A%B0%EB%A6%AC%EB%B0%8B_woorimIT
+  - https://velog.io/@titu/JavaScript-Task-Queue%EB%A7%90%EA%B3%A0-%EB%8B%A4%EB%A5%B8-%ED%81%90%EA%B0%80-%EB%8D%94-%EC%9E%88%EB%8B%A4%EA%B3%A0-MicroTask-Queue-Animation-Frames-Render-Queue
 > 2022-09-07
-  - database index
-    - https://choicode.tistory.com/27
-    - https://rebro.kr/167
+- database index
+  - https://choicode.tistory.com/27
+  - https://rebro.kr/167
 > 2022-09-10
-  - c# class
-    - [필드](https://antstudy.tistory.com/66)
-    - [참조](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/ref)
-    - [속성](https://076923.github.io/posts/C-31/)
-    - [이벤트](http://www.csharpstudy.com/CSharp/CSharp-event.aspx)
-    - [메서드](http://www.csharpstudy.com/CSharp/CSharp-method.aspx)
-  - c# indexer
-    - http://www.csharpstudy.com/CSharp/CSharp-indexer.aspx
+- c# class
+  - [필드](https://antstudy.tistory.com/66)
+  - [참조](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/keywords/ref)
+  - [속성](https://076923.github.io/posts/C-31/)
+  - [이벤트](http://www.csharpstudy.com/CSharp/CSharp-event.aspx)
+  - [메서드](http://www.csharpstudy.com/CSharp/CSharp-method.aspx)
+- c# indexer
+  - http://www.csharpstudy.com/CSharp/CSharp-indexer.aspx
+> 2022-09-16
+- js 비동기 에러처리
+  - https://helloworldjavascript.net/pages/290-exception.html
+  - https://velog.io/@haujinnn/async%EC%99%80-await%EB%A5%BC-%ED%86%B5%ED%95%9C-JS-%EC%97%90%EB%9F%AC-%EC%B2%98%EB%A6%ACerror-handling
+- 종료 처리
+  - https://nodejs.org/api/process.html
+  - https://guseowhtjs.tistory.com/entry/Nodejs%EC%97%90%EC%84%9C-%EC%A2%85%EB%A3%8C%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
+  - https://devyeogoo.tistory.com/8
+- compression
+  - https://yceffort.kr/2021/01/brotli-better-html-compression
+  - https://developer.mozilla.org/ko/docs/Web/HTTP/Compression
+  - https://ngwoon.github.io/network/2020/09/26/HTTP-%EC%95%95%EC%B6%95/
