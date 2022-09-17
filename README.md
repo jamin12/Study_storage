@@ -185,3 +185,6 @@
   - https://yceffort.kr/2021/01/brotli-better-html-compression
   - https://developer.mozilla.org/ko/docs/Web/HTTP/Compression
   - https://ngwoon.github.io/network/2020/09/26/HTTP-%EC%95%95%EC%B6%95/
+> 2022-09-17
+- 매개변수와 인자 차이
+  - https://7942yongdae.tistory.com/155
