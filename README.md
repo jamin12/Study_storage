@@ -188,3 +188,6 @@
 > 2022-09-17
 - 매개변수와 인자 차이
   - https://7942yongdae.tistory.com/155
+> 2022-09-18
+- 자바 JPA 영속성 컨텍스트
+  - https://willseungh0.tistory.com/77

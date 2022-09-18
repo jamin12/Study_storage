@@ -250,5 +250,12 @@
             ​
             transaction.commit();
           - em.close() - 영속성 컨텍스트를 
+7. __2차 캐시__
+   - ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fx4lJI%2FbtqX827lJ2f%2FriUkurtYNEfj2C9YedbHHK%2Fimg.png)
+   - 애플리케이션 범위의 캐시로, 공유 캐시라고도 한다.
+   - 따라서 애플리케이션을 종료할 때 까지 캐시가 유지된다.
+   - 2차 캐시는 동시성을 극대화하기 위해 __캐시 한 객체를 직접 반환하지 않고 복사본을 만들어서 반환한다.__ 캐시한 객체를 그대로 반환하면 여러 곳에서 같은 객체를 동시에 수정하는 동시성 문제가 발생할 수 있음 이를 해경하기 위해서 객체에 락을 걸어야 하는데 이러면 동시성이 떨어질 수 있다. 그래서 2차 캐시는 원본 대신에 복사본을 반환 한다.
+   - __영속성 컨텍스트가 다르면 객체 동일성을 보장하지 않는다__
 # 참고
 - https://ict-nroo.tistory.com/130
+- https://willseungh0.tistory.com/77
