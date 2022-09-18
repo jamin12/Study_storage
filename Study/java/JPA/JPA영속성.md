@@ -25,6 +25,8 @@
        - 엔티티 매니저를 통해서 영속성 컨텍스트에 접근한다.
         ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/11_jpa_em.PNG?raw=true)
        - 스프링에서 EntityManager를 주입 받아서 쓰면, 같은 트랜잭션의 범위에 있는 ENtitiyManager는 동일 영속성 컨텍스트에 접근한다.
+
+
 3. __엔티티의 생명주기__
 ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/12_entity_lifecycle.PNG?raw=true)
    - 비영속(new/transient)
