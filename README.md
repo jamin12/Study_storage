@@ -191,3 +191,7 @@
 > 2022-09-18
 - 자바 JPA 영속성 컨텍스트
   - https://willseungh0.tistory.com/77
+> 2022-09-19
+- 자바 JPA 프록시
+  - https://ict-nroo.tistory.com/131
+  - https://victorydntmd.tistory.com/210
