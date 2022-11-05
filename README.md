@@ -217,3 +217,10 @@
   - [python 상수](https://velog.io/@pm1100tm/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%83%81%EC%88%98%EB%A5%BC-%EC%A0%95%EC%9D%98%ED%95%98%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C)
 - 함수 포인터
   - https://boycoding.tistory.com/233
+> 2022-11-05
+- js closure
+  - https://medium.com/@qhdrbs1341/node-js%EB%A5%BC-%EC%9E%98-%EC%93%B0%EA%B3%A0-%EC%9E%88%EB%8A%94-%EA%B1%B4%EA%B0%80-3-ea3f957e6b08
+  - https://hanamon.kr/javascript-%ED%81%B4%EB%A1%9C%EC%A0%80/
+- js scope
+  - https://medium.com/@qhdrbs1341/node-js%EB%A5%BC-%EC%9E%98-%EC%93%B0%EA%B3%A0-%EC%9E%88%EB%8A%94-%EA%B1%B4%EA%B0%80-3-ea3f957e6b08
+  - https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures
