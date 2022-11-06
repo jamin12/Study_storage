@@ -228,3 +228,7 @@
 - js scope
   - https://medium.com/@qhdrbs1341/node-js%EB%A5%BC-%EC%9E%98-%EC%93%B0%EA%B3%A0-%EC%9E%88%EB%8A%94-%EA%B1%B4%EA%B0%80-3-ea3f957e6b08
   - https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures
+> 2022-11-06
+- js 호이스팅
+  - https://developer.mozilla.org/ko/docs/Glossary/Hoisting
+  - https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/JavaScript#hoisting
