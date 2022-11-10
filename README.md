@@ -238,3 +238,5 @@
 > 2022-11-11
 - 코테
   - [위장](https://school.programmers.co.kr/learn/courses/30/lessons/42578)
+  - [타겟 넘버](https://school.programmers.co.kr/learn/courses/30/lessons/43165?language=python3)
+    - https://www.youtube.com/watch?v=S2JDw9oNNDk&ab_channel=%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A1%9C%EC%B7%A8%EC%A7%81%ED%95%98%EA%B8%B0
