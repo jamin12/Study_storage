@@ -232,3 +232,6 @@
 - js 호이스팅
   - https://developer.mozilla.org/ko/docs/Glossary/Hoisting
   - https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/JavaScript#hoisting
+> 2022-11-10
+- 코테
+  - [가장 먼 노드](https://school.programmers.co.kr/learn/courses/30/lessons/49189)
