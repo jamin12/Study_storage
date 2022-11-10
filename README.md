@@ -235,3 +235,6 @@
 > 2022-11-10
 - 코테
   - [가장 먼 노드](https://school.programmers.co.kr/learn/courses/30/lessons/49189)
+> 2022-11-11
+- 코테
+  - [위장](https://school.programmers.co.kr/learn/courses/30/lessons/42578)
