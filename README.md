@@ -243,3 +243,4 @@
 > 2022-11-11
 - 코테
   - 2진수 10진수로 바꾸기
+  - [네트워크](https://school.programmers.co.kr/learn/courses/30/lessons/43162)
