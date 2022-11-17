@@ -248,4 +248,8 @@
 - 코테
   - [게임 맵 최단거리](https://school.programmers.co.kr/learn/courses/30/lessons/1844)
     - https://m.blog.naver.com/chanmuzi/222847094848
+> 2022-11-18
+- 코테
+  - [단어 변환](https://school.programmers.co.kr/learn/courses/30/lessons/43163)
+    - https://leffept.tistory.com/398
 
