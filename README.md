@@ -244,4 +244,8 @@
 > 2022-11-12
 - 코테
   - 2진수 10진수로 바꾸기
-  - 
+> 2022-11-17
+- 코테
+  - [게임 맵 최단거리](https://school.programmers.co.kr/learn/courses/30/lessons/1844)
+    - https://m.blog.naver.com/chanmuzi/222847094848
+
