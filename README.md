@@ -252,4 +252,8 @@
 - 코테
   - [단어 변환](https://school.programmers.co.kr/learn/courses/30/lessons/43163)
     - https://leffept.tistory.com/398
+> 2022-11-19
+- 코테
+  - [피로도](https://school.programmers.co.kr/learn/courses/30/lessons/87946)
+
 
