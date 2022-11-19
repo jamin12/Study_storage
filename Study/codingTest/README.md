@@ -33,5 +33,6 @@
 - [피로도](https://school.programmers.co.kr/learn/courses/30/lessons/87946)
 - [단어 변환](https://school.programmers.co.kr/learn/courses/30/lessons/86971)
   - https://ourcstory.tistory.com/414
-> 2022-11-19
 - [모음 사전](https://school.programmers.co.kr/learn/courses/30/lessons/84512)
+- [아이템 줍기](https://school.programmers.co.kr/learn/courses/30/lessons/87694)
+  - https://velog.io/@rlaalswn3282/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%95%84%EC%9D%B4%ED%85%9C-%EC%A4%8D%EA%B8%B0
