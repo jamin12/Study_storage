@@ -41,4 +41,4 @@
 - [여행 경로](https://school.programmers.co.kr/learn/courses/30/lessons/43164)
   - https://velog.io/@inhwa1025/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%97%AC%ED%96%89%EA%B2%BD%EB%A1%9C-Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-DFS
   - https://gurumee92.tistory.com/165
-- [베스트 앨범](https://school.programmers.co.kr/learn/courses/30/lessons/42579)
+- [우박수열 정적분](https://school.programmers.co.kr/learn/courses/30/lessons/134239)
