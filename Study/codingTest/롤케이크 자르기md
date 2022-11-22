@@ -1,0 +1,28 @@
+``` py
+from collections import Counter
+
+def solution(topping):
+    # 카운터로 각 토핑종류와 그 종류의 개수를 가져온다.
+    # ex:) {'1':2, '2':3, '3':4}
+    dic=Counter(topping)
+    set_dic=set()
+    answer=0
+    for i in topping:
+        dic[i]-=1
+        # 꺼내온 토핑의 종류
+        set_dic.add(i)
+        # 토핑이 더이상 없으면 dic에서 삭제시킨다.
+        if dic[i]==0:
+            dic.pop(i)
+        # 지금까지 꺼내온 토핑종류의 개수 남아있는 토핑 종류의 개수 같으면 더한다(토핑의 총 개수는 신경쓰지 않는다.)
+        if len(dic)==len(set_dic):
+            answer+=1
+    
+    return answer
+
+print(solution([1, 2, 1, 3, 1, 4, 1, 2]))
+# print(solution([1, 2, 3, 1, 4]))
+```
+#
+출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+- [롤케이크 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/132265)

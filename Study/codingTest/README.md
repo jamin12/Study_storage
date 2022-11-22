@@ -42,3 +42,6 @@
   - https://velog.io/@inhwa1025/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%97%AC%ED%96%89%EA%B2%BD%EB%A1%9C-Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-DFS
   - https://gurumee92.tistory.com/165
 - [우박수열 정적분](https://school.programmers.co.kr/learn/courses/30/lessons/134239)
+> 2022-11-23
+- [롤케이크 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/132265)
+- [혼자 놀기의 달인](https://school.programmers.co.kr/learn/courses/30/lessons/131130)
