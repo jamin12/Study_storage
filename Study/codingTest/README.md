@@ -45,3 +45,6 @@
 > 2022-11-23
 - [롤케이크 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/132265)
 - [혼자 놀기의 달인](https://school.programmers.co.kr/learn/courses/30/lessons/131130)
+> 2022-11-24
+- [연속 부분 수열 합의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/131701)
+- [할인행사](https://school.programmers.co.kr/learn/courses/30/lessons/131127)
