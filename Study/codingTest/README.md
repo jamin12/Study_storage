@@ -53,3 +53,8 @@
   - https://latte-is-horse.tistory.com/146
 > 2022-11-25
 - [귤 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/138476)
+- [이진 변환 반복하기](https://school.programmers.co.kr/learn/courses/30/lessons/70129)
+- [메뉴 리뉴얼](https://school.programmers.co.kr/learn/courses/30/lessons/72411)
+> 2022-11-25
+- [n^2배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390)
+  - https://ukunv.tistory.com/102
