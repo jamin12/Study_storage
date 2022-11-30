@@ -58,3 +58,5 @@
 > 2022-11-25
 - [n^2배열 자르기](https://school.programmers.co.kr/learn/courses/30/lessons/87390)
   - https://ukunv.tistory.com/102
+> 2022-11-30
+- [괄호 회전하기](https://school.programmers.co.kr/learn/courses/30/lessons/76502)
