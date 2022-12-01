@@ -60,3 +60,6 @@
   - https://ukunv.tistory.com/102
 > 2022-11-30
 - [괄호 회전하기](https://school.programmers.co.kr/learn/courses/30/lessons/76502)
+> 2022-12-01
+- [쿼드압축 후 개수 세기](https://school.programmers.co.kr/learn/courses/30/lessons/68936)
+  - https://alreadyusedadress.tistory.com/296
