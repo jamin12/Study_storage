@@ -66,3 +66,5 @@
 > 2022-12-02
 - [주차 요금 계산](https://school.programmers.co.kr/learn/courses/30/lessons/92341)
 - [점 찍기](https://school.programmers.co.kr/learn/courses/30/lessons/140107)
+> 2022-12-03
+- [튜플](https://school.programmers.co.kr/learn/courses/30/lessons/64065튜플
