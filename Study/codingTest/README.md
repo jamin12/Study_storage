@@ -68,3 +68,5 @@
 - [점 찍기](https://school.programmers.co.kr/learn/courses/30/lessons/140107)
 > 2022-12-03
 - [튜플](https://school.programmers.co.kr/learn/courses/30/lessons/64065튜플
+> 2022-12-04
+- [구명보트](https://school.programmers.co.kr/learn/courses/30/lessons/42885)
