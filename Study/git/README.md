@@ -1,7 +1,7 @@
 > 2022-05-18
 - 깃 커밋 메시지 규칙
   - https://junhyunny.github.io/information/github/git-commit-message-rule/
-> 2022-05-18
+> 2022-12-07
 - 깃 merge
   - https://git-scm.com/book/ko/v2/%EB%B6%80%EB%A1%9D-C%3A-Git-%EB%AA%85%EB%A0%B9%EC%96%B4-Branch%EC%99%80-Merge
   - https://learngitbranching.js.org/?locale=ko
