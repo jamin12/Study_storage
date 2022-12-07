@@ -27,3 +27,8 @@
 - 다중 상속
   - https://tragramming.tistory.com/37
   - http://www.tcpschool.com/cpp/cpp_inheritance_multiple
+> 2022-12-08
+- 프로세스와 스레드
+  - https://github.com/hongcheol/CS-study/tree/main/OS#PCB%EC%99%80-Context-Switching
+  - https://inpa.tistory.com/entry/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%E2%9A%94%EF%B8%8F-%EC%93%B0%EB%A0%88%EB%93%9C-%EC%B0%A8%EC%9D%B4
+  - https://haeunyah.tistory.com/81
