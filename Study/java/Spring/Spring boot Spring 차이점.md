@@ -18,14 +18,14 @@
 ## __<span style="color:#9999ff">차이점</span>__ 
   ### __<span style="color:#ff9933">Dependency</span>__
     - Spring의 경우 dependency를 설정해줄 때 설정 파일이 매우 길고, 모든 dependency에 대해 버전 관리도 하나하나 해줘야 한다. 하지만 spring boot는 starter를 통해 dependency가 관리된다(버전관리 또한)
-  ### __<span style="color:#ff9933">Dependency</span>__
+  ### __<span style="color:#ff9933">Configuration</span>__
     - spring에 경유 configuration설정을 할 때도 매우 길고 모든 어노테이션 및 빈 등록 등을 설정해줘야 한다.
     - spring boot는 application.properties파일이나 application.yml 파일에 설정하면 된다.
   ### __<span style="color:#ff9933">autoconfiguration</span>__
     - @SpringBootApplication 덕분에 많은 외부 라이브러리, 내장 톰캣서버등이 실행될 수 있다.
     - @ComponentScan: @component, @controller, @repository, @service라는 어노테이션이 붙어있는 객체들을 스캔해 자동으로 Bean에 등록해준다.
     - @EnableAutoConfiguration: @ComponentScan 이후 사전에 정의한 라이브러리들을 Bean에 등록해준다.
-  ### __<span style="color:#ff9933">Dependency</span>__
+  ### __<span style="color:#ff9933">편리한 배포</span>__
     - sprring의 경울 war파일을 web Application server에 담아 배포있지만
     - spring boot의 경우에는 Tomcat이나 Jetty같은 내장WAS를 가지고 있기 떄문에 JAR 파일로 간편하게 배포할 수 있다.
 # 참고
