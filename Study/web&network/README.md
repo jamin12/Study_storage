@@ -9,3 +9,9 @@
 - Nginx란
   - https://ssdragon.tistory.com/60
   - https://dkswnkk.tistory.com/513
+- nginx 설정 값들
+  - https://yangbongsoo.tistory.com/13
+  - https://heeseong.co.kr/m/218
+  - http://nginx.org/en/docs/ngx_core_module.html
+  - https://developer88.tistory.com/299
+  - https://bentist.tistory.com/81
