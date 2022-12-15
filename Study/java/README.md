@@ -80,3 +80,7 @@
     - https://catsbi.oopy.io/f52511f3-1455-4a01-b8b7-f10875895d5b
     - https://the-greatest-developer.tistory.com/13
     - https://kotlinworld.com/326
+> 2022-09-19
+  - N + 1 문제  
+    - https://programmer93.tistory.com/83
+    - https://incheol-jung.gitbook.io/docs/q-and-a/spring/n+1
