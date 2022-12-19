@@ -70,3 +70,7 @@
 - [튜플](https://school.programmers.co.kr/learn/courses/30/lessons/64065튜플
 > 2022-12-04
 - [구명보트](https://school.programmers.co.kr/learn/courses/30/lessons/42885)
+> 2022-12-19
+- [삼각 달팽이](https://school.programmers.co.kr/learn/courses/30/lessons/68645)
+  - https://hbj0209.tistory.com/68
+  - https://velog.io/@dolarge/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%82%BC%EA%B0%81%EB%8B%AC%ED%8C%BD%EC%9D%B4
