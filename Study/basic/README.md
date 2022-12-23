@@ -36,3 +36,9 @@
 - 프로세스
   - https://github.com/qkraudghgh/coding-interview/blob/master/Interview/question/previous_interview.md#os-solution
   - https://velog.io/@ireneeming/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95
+> 2022-12-18
+- REST API
+  - https://aws.amazon.com/ko/what-is/restful-api/
+  - https://github.com/hongcheol/CS-study/tree/main/CommonSense#rest-api
+  - https://hanamon.kr/rest-api/
+  - https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
