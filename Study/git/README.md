@@ -11,3 +11,7 @@
   - https://learngitbranching.js.org/?locale=ko
   - https://readystory.tistory.com/151
   - https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-Rebase-%ED%95%98%EA%B8%B0
+> 2022-12-07
+- 상대참조
+  - https://learngitbranching.js.org/?locale=ko
+  - https://violetboralee.medium.com/git-next-level-25433466753a
