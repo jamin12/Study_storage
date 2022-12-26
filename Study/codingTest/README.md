@@ -80,3 +80,9 @@
   - https://onlydev.tistory.com/71
 - [멀리뛰기](https://school.programmers.co.kr/learn/courses/30/lessons/132265)
   - http://dailyddubby.blogspot.com/2018/03/16-dynamic-programming.html
+> 2022-12-26
+- [평범한 배낭](https://www.acmicpc.net/problem/1286)
+  - https://ryu-e.tistory.com/90
+  - https://velog.io/@highcho/Algorithm-baekjoon-12865
+  - https://gsmesie692.tistory.com/113
+  - https://myjamong.tistory.com/319
