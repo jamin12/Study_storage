@@ -42,3 +42,6 @@
   - https://github.com/hongcheol/CS-study/tree/main/CommonSense#rest-api
   - https://hanamon.kr/rest-api/
   - https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
+> 2022-12-30
+- 면접을 위한 CS 전공지식 노트
+- https://tecoble.techcourse.co.kr/post/2020-11-07-singleton/
