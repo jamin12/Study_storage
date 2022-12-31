@@ -19,3 +19,7 @@
 - reset revert
   - https://velog.io/@njs04210/Git-reset%EA%B3%BC-revert-%EC%95%8C%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
   - https://hajoung56.tistory.com/3
+> 2022-12-31
+- cherry-pick
+  - https://brownbears.tistory.com/606
+  - https://hbase.tistory.com/141
