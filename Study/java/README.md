@@ -72,15 +72,23 @@
   - https://ict-nroo.tistory.com/131
   - https://victorydntmd.tistory.com/210
 > 2022-09-19
-  - Spring boot Spring 차이점
-    - https://velog.io/@courage331/Spring-%EA%B3%BC-Spring-Boot-%EC%B0%A8%EC%9D%B4
-    - https://programforlife.tistory.com/68
-  - Spring MVC
-    - https://ss-o.tistory.com/160
-    - https://catsbi.oopy.io/f52511f3-1455-4a01-b8b7-f10875895d5b
-    - https://the-greatest-developer.tistory.com/13
-    - https://kotlinworld.com/326
-> 2022-09-19
-  - N + 1 문제  
-    - https://programmer93.tistory.com/83
-    - https://incheol-jung.gitbook.io/docs/q-and-a/spring/n+1
+- Spring boot Spring 차이점
+  - https://velog.io/@courage331/Spring-%EA%B3%BC-Spring-Boot-%EC%B0%A8%EC%9D%B4
+  - https://programforlife.tistory.com/68
+- Spring MVC
+  - https://ss-o.tistory.com/160
+  - https://catsbi.oopy.io/f52511f3-1455-4a01-b8b7-f10875895d5b
+  - https://the-greatest-developer.tistory.com/13
+  - https://kotlinworld.com/326
+> 2022-12-15
+- N + 1 문제  
+  - https://programmer93.tistory.com/83
+  - https://incheol-jung.gitbook.io/docs/q-and-a/spring/n+1
+> 2023-01-01
+- boxing unboxing
+  - https://soft.plusblog.co.kr/56
+- 직렬화 역직렬화
+  - https://dev-coco.tistory.com/153
+  - https://byul91oh.tistory.com/228
+
+
