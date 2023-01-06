@@ -49,3 +49,6 @@
 - TDD
   - https://velog.io/@kyu/TDDTest-Driven-Development
   - https://hanamon.kr/tdd%EB%9E%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/
+- 객체 지향 생활 체조 원칙
+  - https://blogshine.tistory.com/241
+  - https://hudi.blog/thoughtworks-anthology-object-calisthenics/
