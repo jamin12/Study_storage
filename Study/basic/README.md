@@ -45,3 +45,7 @@
 > 2022-12-30
 - 면접을 위한 CS 전공지식 노트
 - https://tecoble.techcourse.co.kr/post/2020-11-07-singleton/
+> 2023-01-06
+- TDD
+  - https://velog.io/@kyu/TDDTest-Driven-Development
+  - https://hanamon.kr/tdd%EB%9E%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A3%BC%EB%8F%84-%EA%B0%9C%EB%B0%9C/
