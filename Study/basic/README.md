@@ -52,3 +52,8 @@
 - 객체 지향 생활 체조 원칙
   - https://blogshine.tistory.com/241
   - https://hudi.blog/thoughtworks-anthology-object-calisthenics/
+> 2023-01-06
+- graphql
+  - https://tech.kakao.com/2019/08/01/graphql-basic/
+  - https://graphql.org/learn/thinking-in-graphs/
+  - https://graphql-kr.github.io/learn/queries/
