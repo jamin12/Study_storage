@@ -93,6 +93,9 @@
 > 2023-01-02
 - Reflection
   - https://dev-coco.tistory.com/153
-
-
+> 2023-01-16
+- 얕은 복사, 깊은 복사, 방어적 복사
+  - https://zzang9ha.tistory.com/372\
+  - https://velog.io/@miot2j/%EC%96%95%EC%9D%80%EB%B3%B5%EC%82%AC-%EA%B9%8A%EC%9D%80%EB%B3%B5%EC%82%AC-%EB%B0%A9%EC%96%B4%EC%A0%81-%EB%B3%B5%EC%82%AC%EB%9E%80
+  - https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/
 
