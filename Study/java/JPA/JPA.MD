@@ -15,4 +15,4 @@
 ### Hibernate
 - JPA를 사용하기 위해서 JPA를 구현한 ORM프레임워크중 하나.
 - hibernate는 JPA명세의 구현체이다.javax.persistence.EntityManager와 같은 JPA의 인터페이스를 직접 구현한 라이브러리이다
-![구현체..](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUHeS3%2FbtqCaRN7gVh%2F0ZQRYe0CF6tQeD3d9d8ITk%2Fimg.png)
+- ![구현체..](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUHeS3%2FbtqCaRN7gVh%2F0ZQRYe0CF6tQeD3d9d8ITk%2Fimg.png)

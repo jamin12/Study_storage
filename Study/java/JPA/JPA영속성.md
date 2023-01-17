@@ -10,7 +10,7 @@
      - 데이터베이스 연결이 필요한 시점까지 커넥션을 얻지 않는다.
    - JPA는 스레드가 하나 생성될 떄마다(매 요청마다) EntitiyManagerFactory에서 EntityManager를 생성한다.
    - EntityManager는 내부적으로 DB커넥션 풀을 사용해서 DB에 붙는다.
-![엔티티 팩토리 엔티티 매니저 사진](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/10_jpa_em.PNG?raw=true)
+- ![엔티티 팩토리 엔티티 매니저 사진](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/10_jpa_em.PNG?raw=true)
 
 2. __영속성 컨텍스트__
    - 영속성 컨텍스트는 JPA를 이해하는데 가장 중요한 용어이다.
@@ -23,12 +23,12 @@
        - __영속성 컨텍스트는 논리적인 개념이다.__
        - 눈에 보이지 않는다.
        - 엔티티 매니저를 통해서 영속성 컨텍스트에 접근한다.
-        ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/11_jpa_em.PNG?raw=true)
+       - ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/11_jpa_em.PNG?raw=true)
        - 스프링에서 EntityManager를 주입 받아서 쓰면, 같은 트랜잭션의 범위에 있는 ENtitiyManager는 동일 영속성 컨텍스트에 접근한다.
 
 
 3. __엔티티의 생명주기__
-![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/12_entity_lifecycle.PNG?raw=true)
+- ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/12_entity_lifecycle.PNG?raw=true)
    - 비영속(new/transient)
      - 영속성 컨텍스트와 전혀 관계가 없는 상태
      - ``` java
@@ -66,9 +66,9 @@
         // 객체를 삭제한 상태
         em.remove(member);
         ```
-4. __영속성 컨텍스트의 이점__
+1. __영속성 컨텍스트의 이점__
    - **1차 캐시**
-![](https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/03_persistence_context_cache.PNG?raw=true)
+     - ![](https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/03_persistence_context_cache.PNG?raw=true)
       - 영속성 컨텍스트(엔티티 매니저)에는 내부 1차 캐시가 존재한다.
       - 엔티티를 영속성 컨텍스트에 저장하는 순간 1차캐시에 저장된다.
       - key: @id로 선언한 필트값 value: 해당 엔티티 자체로 캐시에 저장된다.
@@ -165,7 +165,7 @@
         em.remove(memberA); // 엔티티 삭제
         ```
       - 삭제는 위의 매커니즘이랑 같고 트랜잭션의 commit시점에 DELETE쿼리가 나간다.
-5. __플러시__
+2. __플러시__
     - 플러시는 영속성 컨텍스트의 변경 내용을 테이터베이스에 반영한다.
     - 트랜잭션 커밋이 일어날 때 플러시가 동작하는데, 쓰기 지연 저장소에 쌓아놨던 INSERT,UPDATE,DELETE SQL들이 데이터베이스에 날라간다.
     - 쉽게 얘기해서 영속성 컨텍스트의 변경 사항들과 데이터베이스를 싱크하는 작업이다
@@ -215,7 +215,7 @@
         - 플러시가 동작할 수 있는 이유는 데이터베이스 트랜잭션이라는 작업 단위가 있기 떄문이다.
           - 트랜잭션이 시작되고 커밋되는 시점에만 동기화 해주면 되기 떄문에 그 사이에서 플러시 매커니즘의 동작이 가능한 것이다.
         - JPA는 기본적으로 데이터를 맞추거나 동시성에 관련된 것들은 데이터베이스 트랜잭션에 위임한다.
-6. __준영속 상태__
+3. __준영속 상태__
     - 영속 상태
       - 영속성 컨텍스트의 1차 캐시가 올라간 상태가 영속 상태이다. 엔티티 매니저가 관리하는 상태
       - em.persist()로 영속성 컨텍스트에 저장한 상태도 영속 상태이지만,
@@ -250,7 +250,7 @@
             ​
             transaction.commit();
           - em.close() - 영속성 컨텍스트를 
-7. __2차 캐시__
+4. __2차 캐시__
    - ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fx4lJI%2FbtqX827lJ2f%2FriUkurtYNEfj2C9YedbHHK%2Fimg.png)
    - 애플리케이션 범위의 캐시로, 공유 캐시라고도 한다.
    - 따라서 애플리케이션을 종료할 때 까지 캐시가 유지된다.
