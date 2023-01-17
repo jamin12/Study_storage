@@ -98,4 +98,9 @@
   - https://zzang9ha.tistory.com/372\
   - https://velog.io/@miot2j/%EC%96%95%EC%9D%80%EB%B3%B5%EC%82%AC-%EA%B9%8A%EC%9D%80%EB%B3%B5%EC%82%AC-%EB%B0%A9%EC%96%B4%EC%A0%81-%EB%B3%B5%EC%82%AC%EB%9E%80
   - https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/
+> 2023-01-17
+- 멀티모듈
+  - https://techblog.woowahan.com/2637/
+  - https://jojoldu.tistory.com/123
+  - https://hyeon9mak.github.io/woowahan-multi-module/
 
