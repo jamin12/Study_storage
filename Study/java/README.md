@@ -103,4 +103,7 @@
   - https://techblog.woowahan.com/2637/
   - https://jojoldu.tistory.com/123
   - https://hyeon9mak.github.io/woowahan-multi-module/
-
+> 2023-01-18
+- @Embedded, @Embeddable, @AttributeOverride
+  - https://galid1.tistory.com/592
+  - https://ttl-blog.tistory.com/133
