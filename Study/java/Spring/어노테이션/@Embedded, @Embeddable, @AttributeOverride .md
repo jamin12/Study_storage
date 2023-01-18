@@ -32,7 +32,7 @@
         @Embedded
         private Address address;
     }
-- 임베디드 타입을 사용하지한ㄴㅎ고 zipCode, address1 ...을 User에서 그냥 사용할 때와 테이블 구조는 똑같다.
+- 임베디드 타입을 사용하지않고 zipCode, address1 ...을 User에서 그냥 사용할 때와 테이블 구조는 똑같다.
 1. ### 임베디드 타입과 연관관계
    - 다른 엔티티 혹은 값 타입과 연관관계를 맺을 수 있다.
    - ``` java 
