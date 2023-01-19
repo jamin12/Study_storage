@@ -109,3 +109,7 @@
   - https://ttl-blog.tistory.com/133
 - JPA 개념정리
   - https://suhwan.dev/2019/02/24/jpa-vs-hibernate-vs-spring-data-jpa/
+> 2023-01-19
+- JPA연관관계 설정
+  - https://jeong-pro.tistory.com/231
+  - https://ict-nroo.tistory.com/122
