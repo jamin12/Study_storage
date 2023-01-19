@@ -109,7 +109,7 @@
         Systen.out.println(a == b); // 동일성 비교 true
         ```
     - **트랜잭션을 지원하는 쓰기 지연(transactional write-behind)-엔티티 등록**
-      -![](https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/04_transactional_write_behind.PNG?raw=true)
+      - ![](https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/04_transactional_write_behind.PNG?raw=true)
       - 트랜잭션 내부에서 persist()가 일어날때,
       - 엔티티들을 1차 캐시에 저장하고, 논리적으로 쓰기지연 SQL저장소 라는 곳에 INSERT쿼리들을 생성해서쌓아 놓는다.
       - DB에 바로 넣지 않고 기다린다.
@@ -156,7 +156,7 @@
         ```
       - 엔티티 데이터만 수정하면 끝이다. 데이터만 set하고 트랜잭션을 커밋하면 자동으로 업데이트 쿼리가나간다.
       - 1차 캐시에 저장할 때 동시에 스냅샷 필드도 저장한다.
-      ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/13_dirty_checking.PNG?raw=true)
+      - ![](https://github.com/namjunemy/TIL/blob/master/Jpa/tacademy/img/13_dirty_checking.PNG?raw=true)
       - 그러고 나서 commit()또는 flush()가 일어날 떄 엔티티와 스냅샷을 비교해서, 변경사항이 있으면 updateSQL을알아서 만들어서 DB에 저장한다.
     - **엔티티 삭제**
       - ``` java
@@ -249,7 +249,7 @@
             Member member1 = em.find(Member.class, 150L);
             ​
             transaction.commit();
-          - em.close() - 영속성 컨텍스트를 
+          - em.close() - 영속성 컨텍스트를 종료
 4. __2차 캐시__
    - ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fx4lJI%2FbtqX827lJ2f%2FriUkurtYNEfj2C9YedbHHK%2Fimg.png)
    - 애플리케이션 범위의 캐시로, 공유 캐시라고도 한다.
