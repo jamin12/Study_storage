@@ -113,3 +113,8 @@
 - JPA연관관계 설정
   - https://jeong-pro.tistory.com/231
   - https://ict-nroo.tistory.com/122
+> 2023-01-20
+- spring converter
+  - https://engkimbs.tistory.com/738
+  - https://jddng.tistory.com/290
+  - https://develop-writing.tistory.com/105
