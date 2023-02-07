@@ -118,3 +118,9 @@
   - https://engkimbs.tistory.com/738
   - https://jddng.tistory.com/290
   - https://develop-writing.tistory.com/105
+> 2023-02-07
+- 영속성 전이
+  - https://hongchangsub.com/jpa-cascade-2/
+  - https://prohannah.tistory.com/132
+  - https://velog.io/@sa1341/JPA-%EC%98%81%EC%86%8D%EC%84%B1-%EC%A0%84%EC%9D%B4
+  - https://girawhale.tistory.com/130
