@@ -124,3 +124,8 @@
   - https://prohannah.tistory.com/132
   - https://velog.io/@sa1341/JPA-%EC%98%81%EC%86%8D%EC%84%B1-%EC%A0%84%EC%9D%B4
   - https://girawhale.tistory.com/130
+> 2023-02-08
+- Mockito
+  - https://beststar-1.tistory.com/30
+  - https://cobbybb.tistory.com/16
+  - https://velog.io/@hanblueblue/spring-boot-%EC%9C%A0%EB%8B%9B-%ED%85%8C%EC%8A%A4%ED%8A%B8-3.-Mockito
