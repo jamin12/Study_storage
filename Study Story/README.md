@@ -4,3 +4,6 @@
   - https://clack2933.tistory.com/22
 - 영속성 전이 부적절한 사용
   - https://cantcoding.tistory.com/75
+- 하나의 class로 여러가지의 dto를 받는 방법(JSONTypeInfo) 다형성 가져가기
+  - https://kdohyeon.tistory.com/99
+  - https://www.logicbig.com/tutorials/misc/jackson/json-type-info-with-logical-type-name.html

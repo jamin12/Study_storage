@@ -346,3 +346,4 @@ swagger에서 이러한 정보를 얻지 못하게되어서 넣는게 좋다고 
 
 # 참고
 - https://kdohyeon.tistory.com/99
+- https://www.logicbig.com/tutorials/misc/jackson/json-type-info-with-logical-type-name.html
