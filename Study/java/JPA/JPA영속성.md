@@ -259,3 +259,4 @@
 # 참고
 - https://ict-nroo.tistory.com/130
 - https://willseungh0.tistory.com/77
+#jpa #java

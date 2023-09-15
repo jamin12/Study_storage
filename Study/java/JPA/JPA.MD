@@ -26,3 +26,4 @@
 - ![Alt text](https://suhwan.dev/images/jpa_hibernate_repository/overall_design.png)
 # 참고
 - https://suhwan.dev/2019/02/24/jpa-vs-hibernate-vs-spring-data-jpa/
+#jpa #java

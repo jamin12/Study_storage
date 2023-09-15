@@ -319,3 +319,4 @@
 - https://velog.io/@cateto/Java-Thread-Safe%EB%9E%80
 - https://sup2is.github.io/2021/05/03/thread-safe-in-java.html
 - https://zerodev.tistory.com/82
+#javabasic #java

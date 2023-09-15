@@ -153,3 +153,4 @@
      - GrantedAuthority는 현재 사용자가 가지고 있는 권한을 의미한다.ROLE_ADMIN나 ROLE_USER와 같이 ROLE_*의 형태로 사용하며 보통 "roles"이라고 한다. GrantedAuthority객체는 UserDetailsService에 의해 불러올 수 있고 특정 자원에 대한 권한이 있는지 검사하여 접근 허용 여부를 결정한다.
 # 참고
 - https://mangkyu.tistory.com/76
+#java #spring #springSecurity
