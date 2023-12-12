@@ -5,23 +5,24 @@
 ![](./imgs/image.png)
 최신이라고 생각했던 5.0버전을 사용하다가 record는 final 필드라서 랜덤한 객체를 만들 수 없다는 버그가 생겼다.
 
-![](./)
-![[Untitled.png]]
-![[Untitled 1.png]]
+![](./imgs/image1.png)
+
+![](./imgs/Untitled.png)
+![](./imgs/Untitled1.png)
 easy random은 기본적으로 빈 객체를 만들고 필드를 채우는 방식인데 record와 호환되지 않는다고 되어있다
 
 [Add support to generate random Java Records · Issue #397 · j-easy/easy-random](https://github.com/j-easy/easy-random/issues/397)
 
 이슈를 쭉 일어 보다가 record 문제를 해결한 버전이(6.x.x)가 나와서 maven repo에 올렸다고 해서 찾아 봤는데
 
-![[Untitled 2.png]]
+![](./imgs/Untitled2.png)
 다른 레포에 올라와져 있어서 못찾고 있었다 ㅜㅜ
 
 ## Instancio
 
 레포지토리를 못찾는 삽질을 하는 동안 위 깃허브 이슈 글에서
 
-![[Untitled 3.png]]
+![](./imgs/Untitled3.png)
 새로운 라이브러리를 추천해줘서 한번 사용하게 되었는데
 
 [User Guide - Instancio](https://www.instancio.org/user-guide/)
@@ -110,7 +111,7 @@ public static ControlPointAndValue 관제점_관제값_랜덤_생성(BigDecimal 
 
 릴리즈를 조금 더 자주하고 최신꺼 같아서 instancio를 사용하기로 했다!
 
-![[Untitled 4.png]]
+![](./imgs/Untitled4.png)
 instancio
 
-![[easy radom.png]]
+![](./imgs/easyradom.png)
