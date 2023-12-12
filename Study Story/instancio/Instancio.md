@@ -115,3 +115,4 @@ public static ControlPointAndValue 관제점_관제값_랜덤_생성(BigDecimal 
 instancio
 
 ![](./imgs/easyradom.png)
+easy random
