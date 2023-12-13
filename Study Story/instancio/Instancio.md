@@ -111,7 +111,11 @@ public static ControlPointAndValue 관제점_관제값_랜덤_생성(BigDecimal 
 
 릴리즈를 조금 더 자주하고 최신꺼 같아서 instancio를 사용하기로 했다!
 
+그리고 easyrandom을 사용하는 팀원말에 의하면 cyclic object(jpa 양방향 설정 등)을 제대로 처리 못한다고 한다
+~~해보지는 않았음....~~
+
 ![](./imgs/Untitled4.png)
 instancio
 
 ![](./imgs/easyradom.png)
+easy random
