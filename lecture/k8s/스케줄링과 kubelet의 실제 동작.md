@@ -1,0 +1,70 @@
+## **kubectl apply는 실행 명령이 아니다.**
+
+Kubernetes에서 kubectl apply -f pod.yaml 명령어를 사용하면 곧바로 컨테이너가 실행되는 것처럼 보입니다. 
+하지만 실제로는 해당 명령은 “Pod를 실행해달라”는 지시가 아니라, “이러한 리소스를 생성하고 관리해달라”는 **선언**에 해당합니다.
+
+## 선언 실행 과정
+
+사용자가 kubectl apply 명령어를 입력하면, kubectl은 해당 YAML 파일을 JSON 형식으로 변환합니다. 
+그리고 이 변환된 데이터를 Kubernetes API 서버인 kube-apiserver에 REST 요청 형태로 전송합니다.
+
+kube-apiserver는 이 요청을 수신하면 리소스 정의를 etcd에 저장합니다. 이
+시점에서 Pod는 **Pending 상태**로 등록되며, 컨테이너가 실행된 것은 아닙니다. 단지 클러스터 내부에 “이런 Pod를 관리해야 한다”는 정의가 저장된 상태일 뿐입니다.
+
+1. 사용자가 만든 Deployment는 “replicas: 3”처럼 원하는 복제 수만 선언합니다.
+2. controller-manager는 이를 감지하고 ReplicaSet을 자동 생성합니다.
+3. ReplicaSet은 다시 3개의 Pod 정의를 kube-apiserver에 등록합니다. 이 역시 **etcd에 저장될 뿐**입니다.
+4. scheduler가 이 Pod들 중 “Node가 지정되지 않은 것”을 감지하여,
+    각 Pod를 어떤 Node에 배치할지 결정합니다.
+5. Node가 지정되면, 해당 Node의 kubelet이 그 Pod 정의를 감지하고 실제로 실행합니다.
+
+>  etcd에만 등록된 메타데이터일 뿐이며, 아직 CPU나 메모리 같은 시스템 자원은 사용되지 않습니다.
+
+### **kube-scheduler 실행 위치 결정**
+
+Pending 상태의 Pod가 생성되면, kube-scheduler는 API 서버를 통해 이를 감지합니다. 
+scheduler는 watch API를 통해 새로운 리소스 이벤트를 실시간으로 수신하고 있으며, Pending 상태의 Pod를 발견하면 스케줄링 작업을 시작합니다.
+
+스케줄러는 다음과 같은 기준을 바탕으로 실행할 노드를 선택합니다.
+- 각 Node의 사용 가능한 자원(CPU, 메모리)
+- affinity/anti-affinity 정책
+- taint와 toleration 설정
+- Node Selector 등
+
+
+이러한 조건을 바탕으로 최적의 Node를 선택한 뒤, 해당 Pod의 spec.nodeName 필드를 PATCH 방식으로 업데이트합니다.
+이로써 해당 Pod는 특정 노드에 “할당된 상태”가 됩니다. 하지만 아직 컨테이너는 실행되지 않았습니다.
+
+
+### **kubelet 컨테이너 실행**
+
+Pod의 nodeName이 지정되면, 해당 노드에 존재하는 kubelet이 API 서버로부터 이를 감지합니다.
+kubelet 또한 watch를 통해 자신에게 할당된 리소스를 지속적으로 모니터링하고 있으며, 자신이 실행해야 할 Pod가 등장하면 그 정의를 가져옵니다.
+
+kubelet은 이 정의에 따라 container runtime(예: containerd)에게 실행 명령을 전달합니다. containerd는 내부적으로 runc를 사용해 실제 컨테이너 프로세스를 생성합니다.
+
+
+컨테이너가 정상적으로 실행되면, kubelet은 그 상태를 주기적으로 API 서버에 보고합니다. 이 정보를 기반으로 사용자는 kubectl get pods 명령어를 통해 해당 Pod가 “Running” 상태인지 확인할 수 있습니다.
+
+
+
+``` mermaid
+sequenceDiagram
+    participant User as 사용자 (kubectl)
+    participant API as kube-apiserver
+    participant Scheduler as kube-scheduler
+    participant Kubelet as kubelet
+    participant Runtime as containerd/runc
+
+    User->>API: kubectl apply (pod.yaml)
+    API->>API: etcd에 리소스 저장 (Pending 상태)
+
+    Scheduler->>API: watch /pods
+    API-->>Scheduler: {"type": "ADDED", "object": Pod (Pending)}
+    Scheduler->>API: PATCH pod.spec.nodeName = "node-a"
+
+    Kubelet->>API: watch /pods (nodeName = node-a)
+    API-->>Kubelet: {"type": "MODIFIED", "object": Pod (node-a)}
+    Kubelet->>Runtime: 컨테이너 실행 명령
+    Kubelet->>API: 상태 보고 (Running)
+```
